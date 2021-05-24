@@ -18,8 +18,12 @@ class RecommentViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.register(GameCardCell.classForCoder(), forCellReuseIdentifier: RecommentViewController.recCellIdentifier)
-        tableView.estimatedRowHeight=50
         tableView.rowHeight = UITableView.automaticDimension
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        } else {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         return tableView
     }()
 

@@ -12,8 +12,26 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
     var tarbarConfigArr: [[String: String]]! // 标签栏配置数组，从Plist文件中读取
     var mainTabBarView: BaseTabbarController!
 
+    var baseTabBarView: BaseTabBarView?
+    
+    var isHiddenTabbar: Bool {
+        didSet {
+            baseTabBarView?.isHidden = isHiddenTabbar
+        }
+    }
+    
+    //创建一个静态或者全局变量，保存当前单例实例值
+    private static let singleInstance = BaseTabbarController()
+    
+    //提供一个公开的用来去获取单例的方法
+    class func defaultSingleInstance() ->BaseTabbarController {
+        //返回初始化好的静态变量值
+        return singleInstance
+    }
+    
     override init(nibName _: String?, bundle _: Bundle?) {
         // 1.调用父类的初始化方法
+        self.isHiddenTabbar = false
         super.init(nibName: nil, bundle: nil)
         // 2.读取Plist文件,初始化标签栏配置数组
         tarbarConfigArr = getConfigArrFromPlistFile()
@@ -87,9 +105,9 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
         tabBar.isHidden = true
         let newTabBarRect = CGRect(x: tabBarRect.origin.x, y: tabBarRect.origin.y - KSafeBottom, width: tabBarRect.size.width, height: tabBarRect.size.height + KSafeBottom)
         // 3.使用得到的frame，和plist数据创建自定义标签栏
-        let baseTabBarView = BaseTabBarView(frame: newTabBarRect, tabbarConfigArr: tarbarConfigArr!)
-        baseTabBarView.delegate = self
-        view.addSubview(baseTabBarView)
+        baseTabBarView = BaseTabBarView(frame: newTabBarRect, tabbarConfigArr: tarbarConfigArr!)
+        baseTabBarView?.delegate = self
+        view.addSubview(baseTabBarView!)
     }
 
     // MARK: - baseTabBarDelegate
@@ -97,4 +115,6 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
     func didChooseItem(itemIndex: Int) {
         selectedIndex = itemIndex
     }
+
+
 }

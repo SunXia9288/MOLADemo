@@ -19,6 +19,7 @@ class GameCardCell: UITableViewCell {
     
     private lazy var banner: UIImageView = {
         let imageV = UIImageView()
+        imageV.contentMode = .scaleToFill
         return imageV
     }()
     
