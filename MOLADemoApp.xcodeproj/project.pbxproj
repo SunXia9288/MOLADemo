@@ -12,6 +12,16 @@
 		A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707C2657CE8500911559 /* ContentBaseViewController.swift */; };
 		A484707F2657CF8000911559 /* RecommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707E2657CF8000911559 /* RecommentViewController.swift */; };
 		A48470812657D50B00911559 /* GameCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48470802657D50B00911559 /* GameCardCell.swift */; };
+		A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */; };
+		A49F9AD6265B947200A15D69 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AD5265B947200A15D69 /* PagingViewController.swift */; };
+		A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */; };
+		A49F9AEA265B957E00A15D69 /* JXPagingSmoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE1265B957E00A15D69 /* JXPagingSmoothView.swift */; };
+		A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE2265B957E00A15D69 /* JXPagingView.swift */; };
+		A49F9AEC265B957E00A15D69 /* JXPagingListRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE3265B957E00A15D69 /* JXPagingListRefreshView.swift */; };
+		A49F9AED265B957E00A15D69 /* JXPagingListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE4265B957E00A15D69 /* JXPagingListContainerView.swift */; };
+		A49F9AEE265B957E00A15D69 /* PagingListBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE5265B957E00A15D69 /* PagingListBaseView.swift */; };
+		A49F9AEF265B957E00A15D69 /* PagingListBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE6265B957E00A15D69 /* PagingListBaseCell.swift */; };
+		A49F9AF0265B957E00A15D69 /* PagingViewTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE7265B957E00A15D69 /* PagingViewTableHeaderView.swift */; };
 		A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7182655310500E1D74C /* AppDelegate.swift */; };
 		A4B0F7222655310800E1D74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7212655310800E1D74C /* Assets.xcassets */; };
 		A4B0F7252655310800E1D74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7232655310800E1D74C /* LaunchScreen.storyboard */; };
@@ -37,6 +47,16 @@
 		A484707C2657CE8500911559 /* ContentBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseViewController.swift; sourceTree = "<group>"; };
 		A484707E2657CF8000911559 /* RecommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentViewController.swift; sourceTree = "<group>"; };
 		A48470802657D50B00911559 /* GameCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardCell.swift; sourceTree = "<group>"; };
+		A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		A49F9AD5265B947200A15D69 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
+		A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingMainTableView.swift; sourceTree = "<group>"; };
+		A49F9AE1265B957E00A15D69 /* JXPagingSmoothView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingSmoothView.swift; sourceTree = "<group>"; };
+		A49F9AE2265B957E00A15D69 /* JXPagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingView.swift; sourceTree = "<group>"; };
+		A49F9AE3265B957E00A15D69 /* JXPagingListRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingListRefreshView.swift; sourceTree = "<group>"; };
+		A49F9AE4265B957E00A15D69 /* JXPagingListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingListContainerView.swift; sourceTree = "<group>"; };
+		A49F9AE5265B957E00A15D69 /* PagingListBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseView.swift; sourceTree = "<group>"; };
+		A49F9AE6265B957E00A15D69 /* PagingListBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseCell.swift; sourceTree = "<group>"; };
+		A49F9AE7265B957E00A15D69 /* PagingViewTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewTableHeaderView.swift; sourceTree = "<group>"; };
 		A4B0F7152655310500E1D74C /* MOLADemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOLADemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B0F7182655310500E1D74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B0F7212655310800E1D74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +111,29 @@
 				A484707A26565C8500911559 /* Const.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		A49F9ADD265B957E00A15D69 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				A49F9ADF265B957E00A15D69 /* JXPagingView */,
+				A49F9AE5265B957E00A15D69 /* PagingListBaseView.swift */,
+				A49F9AE6265B957E00A15D69 /* PagingListBaseCell.swift */,
+				A49F9AE7265B957E00A15D69 /* PagingViewTableHeaderView.swift */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		A49F9ADF265B957E00A15D69 /* JXPagingView */ = {
+			isa = PBXGroup;
+			children = (
+				A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */,
+				A49F9AE1265B957E00A15D69 /* JXPagingSmoothView.swift */,
+				A49F9AE2265B957E00A15D69 /* JXPagingView.swift */,
+				A49F9AE3265B957E00A15D69 /* JXPagingListRefreshView.swift */,
+				A49F9AE4265B957E00A15D69 /* JXPagingListContainerView.swift */,
+			);
+			path = JXPagingView;
 			sourceTree = "<group>";
 		};
 		A4B0F70C2655310500E1D74C = {
@@ -254,6 +297,8 @@
 		A4B0F76726553B4900E1D74C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */,
+				A49F9AD5265B947200A15D69 /* PagingViewController.swift */,
 				A4B0F75B26553A1D00E1D74C /* GameViewController.swift */,
 			);
 			path = ViewController;
@@ -269,6 +314,7 @@
 		A4B0F76926553B7700E1D74C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A49F9ADD265B957E00A15D69 /* Personal */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,19 +460,29 @@
 			files = (
 				A484707F2657CF8000911559 /* RecommentViewController.swift in Sources */,
 				A48470812657D50B00911559 /* GameCardCell.swift in Sources */,
+				A49F9AF0265B957E00A15D69 /* PagingViewTableHeaderView.swift in Sources */,
 				A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */,
+				A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */,
+				A49F9AED265B957E00A15D69 /* JXPagingListContainerView.swift in Sources */,
 				A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */,
 				A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */,
+				A49F9AD6265B947200A15D69 /* PagingViewController.swift in Sources */,
+				A49F9AEF265B957E00A15D69 /* PagingListBaseCell.swift in Sources */,
 				A4B0F7742655579E00E1D74C /* UIImage+Extension.swift in Sources */,
 				A4B0F77026554F4C00E1D74C /* BaseTabBarView.swift in Sources */,
 				A4B0F754265534B200E1D74C /* BaseViewController.swift in Sources */,
 				A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */,
+				A49F9AEA265B957E00A15D69 /* JXPagingSmoothView.swift in Sources */,
+				A49F9AEE265B957E00A15D69 /* PagingListBaseView.swift in Sources */,
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
 				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,
 				A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */,
+				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
+				A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */,
+				A49F9AEC265B957E00A15D69 /* JXPagingListRefreshView.swift in Sources */,
 				A484707B26565C8500911559 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,10 +46,15 @@ extension RecommentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:GameCardCell = tableView.dequeueReusableCell(withIdentifier: RecommentViewController.recCellIdentifier, for:indexPath) as! GameCardCell
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(PagingViewController(), animated: true)
     }
 }
 

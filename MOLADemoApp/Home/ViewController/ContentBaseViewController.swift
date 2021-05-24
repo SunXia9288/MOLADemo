@@ -68,8 +68,6 @@ extension ContentBaseViewController: JXSegmentedViewDelegate {
             // 再调用reloadItem(at: index)
             segmentedView.reloadItem(at: index)
         }
-
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
     }
 }
 
