@@ -28,5 +28,9 @@ extension UIColor {
     class var textBlackColor: UIColor {
         return UIColor(rgb: 0x515151)
     }
+    
+    class var textGaryColor: UIColor {
+        return UIColor(rgb: 0x909090)
+    }
    
 }
