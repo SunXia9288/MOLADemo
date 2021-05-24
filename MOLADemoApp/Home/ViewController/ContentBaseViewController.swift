@@ -42,8 +42,8 @@ class ContentBaseViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        segmentedView.frame = CGRect(x: 0, y: NavbarSafeHeight, width: view.bounds.size.width, height: 40)
-        listContainerView.frame = CGRect(x: 0, y: 50 + NavbarSafeHeight, width: view.bounds.size.width, height: view.bounds.size.height - 50 - NavbarSafeHeight)
+        segmentedView.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 40)
+        listContainerView.frame = CGRect(x: 0, y: 50 , width: view.bounds.size.width, height: view.bounds.size.height - 50)
     }
 
     @objc func didSetingsButtonClicked() {}
