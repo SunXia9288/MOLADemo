@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import JXSegmentedView
 
 class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
     var tarbarConfigArr: [[String: String]]! // 标签栏配置数组，从Plist文件中读取
@@ -85,12 +86,34 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
                 let anyClass: AnyClass? = NSClassFromString(clsName + "." + controllerNameArray[i])
                 // 将AnyClass类型转换为BaseViewController类型，
                 // 因为Swift中通过一个Class来创建一个对象, 必须告诉系统这个Class的确切类型
-                if let vcClassType = anyClass as? BaseViewController.Type {
+                if let vcClassType = anyClass as? ContentBaseViewController.Type {
+                    let vc = ContentBaseViewController()
+                    vc.title = "游戏列表"
+                    let dataSource = JXSegmentedTitleDataSource()
+                    dataSource.isTitleColorGradientEnabled = true
+                    dataSource.titles = ["关注", "推荐", "即将到来"]
+                    dataSource.itemWidth = view.bounds.size.width / 3
+                    dataSource.itemSpacing = 0
+                    dataSource.isTitleZoomEnabled = true
+                    dataSource.titleNormalColor = UIColor.normalGaryColor
+                    dataSource.titleNormalFont = UIFont.systemFont(ofSize: 14)
+                    dataSource.titleSelectedColor = UIColor.textBlackColor
+                    dataSource.titleSelectedFont = UIFont.boldSystemFont(ofSize: 18)
+                    vc.segmentedDataSource = dataSource
+                    // 配置指示器
+                    let indicator = JXSegmentedIndicatorLineView()
+                    indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
+                    indicator.isIndicatorWidthSameAsItemContent = true
+                    vc.segmentedView.indicators = [indicator]
+                    let nav = BaseNavigationController(rootViewController: vc)
+                    nvcArray.append(nav)
+                }else if let vcClassType = anyClass as? BaseViewController.Type{
                     let viewcontroller = vcClassType.init()
                     viewcontroller.title = controllerTitle[i]
                     let nav = BaseNavigationController(rootViewController: viewcontroller)
                     nvcArray.append(nav)
                 }
+                
             }
             // 设置标签栏控制器数组
             viewControllers = nvcArray

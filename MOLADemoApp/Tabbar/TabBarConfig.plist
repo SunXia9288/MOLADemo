@@ -12,7 +12,7 @@
 			<key>SelectImg</key>
 			<string>tabbar_home_selected</string>
 			<key>ClassName</key>
-			<string>HomeViewController</string>
+			<string>ContentBaseViewController</string>
 		</dict>
 		<dict>
 			<key>Title</key>

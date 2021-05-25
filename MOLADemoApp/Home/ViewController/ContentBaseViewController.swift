@@ -9,7 +9,7 @@
 import JXSegmentedView
 import UIKit
 
-class ContentBaseViewController: UIViewController {
+class ContentBaseViewController: BaseViewController {
     var segmentedDataSource: JXSegmentedBaseDataSource?
     let segmentedView = JXSegmentedView()
     lazy var listContainerView: JXSegmentedListContainerView! = {

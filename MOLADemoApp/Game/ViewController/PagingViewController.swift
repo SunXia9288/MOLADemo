@@ -11,7 +11,7 @@ import JXSegmentedView
 
 extension JXPagingListContainerView: JXSegmentedViewListContainer {}
 
-class PagingViewController: UIViewController {
+class PagingViewController: BaseViewController {
     private var pagingView: JXPagingView!
     private var userHeaderView: PagingViewTableHeaderView!
     private var userHeaderContainerView: UIView!
@@ -25,8 +25,7 @@ class PagingViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "游戏中心"
-        self.navigationController?.navigationBar.isTranslucent = false
-
+   
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
         userHeaderContainerView.addSubview(userHeaderView)

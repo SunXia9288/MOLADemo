@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
 
     @objc func click() {
         let vc = ContentBaseViewController()
-        vc.title = "itemTitle"
+        vc.title = "游戏列表"
         let dataSource = JXSegmentedTitleDataSource()
         dataSource.isTitleColorGradientEnabled = true
         dataSource.titles = ["关注", "推荐", "即将到来"]
