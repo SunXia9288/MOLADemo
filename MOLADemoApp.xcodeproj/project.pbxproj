@@ -12,6 +12,7 @@
 		A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707C2657CE8500911559 /* ContentBaseViewController.swift */; };
 		A484707F2657CF8000911559 /* RecommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707E2657CF8000911559 /* RecommentViewController.swift */; };
 		A48470812657D50B00911559 /* GameCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48470802657D50B00911559 /* GameCardCell.swift */; };
+		A4847083265BE51700911559 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4847082265BE51700911559 /* BaseLabel.swift */; };
 		A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */; };
 		A49F9AD6265B947200A15D69 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AD5265B947200A15D69 /* PagingViewController.swift */; };
 		A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */; };
@@ -47,6 +48,7 @@
 		A484707C2657CE8500911559 /* ContentBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseViewController.swift; sourceTree = "<group>"; };
 		A484707E2657CF8000911559 /* RecommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentViewController.swift; sourceTree = "<group>"; };
 		A48470802657D50B00911559 /* GameCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardCell.swift; sourceTree = "<group>"; };
+		A4847082265BE51700911559 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		A49F9AD5265B947200A15D69 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingMainTableView.swift; sourceTree = "<group>"; };
@@ -163,7 +165,6 @@
 				A4B0F7232655310800E1D74C /* LaunchScreen.storyboard */,
 				A4B0F7522655349D00E1D74C /* BaseCode */,
 				A4B0F74F2655326000E1D74C /* Tabbar */,
-				A4B0F74E2655323100E1D74C /* Network */,
 				A4B0F74D2655321300E1D74C /* Categories */,
 				A4B0F74C265531F300E1D74C /* Setting */,
 				A4B0F74B265531EB00E1D74C /* Notification */,
@@ -223,13 +224,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		A4B0F74E2655323100E1D74C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		A4B0F74F2655326000E1D74C /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +240,7 @@
 			children = (
 				A4B0F753265534B200E1D74C /* BaseViewController.swift */,
 				A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */,
+				A4847082265BE51700911559 /* BaseLabel.swift */,
 			);
 			path = BaseCode;
 			sourceTree = "<group>";
@@ -477,6 +472,7 @@
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
+				A4847083265BE51700911559 /* BaseLabel.swift in Sources */,
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
 				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,
 				A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */,
