@@ -23,6 +23,10 @@
 		A49F9AEE265B957E00A15D69 /* PagingListBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE5265B957E00A15D69 /* PagingListBaseView.swift */; };
 		A49F9AEF265B957E00A15D69 /* PagingListBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE6265B957E00A15D69 /* PagingListBaseCell.swift */; };
 		A49F9AF0265B957E00A15D69 /* PagingViewTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE7265B957E00A15D69 /* PagingViewTableHeaderView.swift */; };
+		A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF1265E1AB300A15D69 /* GameInfoView.swift */; };
+		A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */; };
+		A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF5265E1C1300A15D69 /* FollowButton.swift */; };
+		A49F9AF8265E6A3F00A15D69 /* NewsInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */; };
 		A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7182655310500E1D74C /* AppDelegate.swift */; };
 		A4B0F7222655310800E1D74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7212655310800E1D74C /* Assets.xcassets */; };
 		A4B0F7252655310800E1D74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7232655310800E1D74C /* LaunchScreen.storyboard */; };
@@ -59,6 +63,10 @@
 		A49F9AE5265B957E00A15D69 /* PagingListBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseView.swift; sourceTree = "<group>"; };
 		A49F9AE6265B957E00A15D69 /* PagingListBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingListBaseCell.swift; sourceTree = "<group>"; };
 		A49F9AE7265B957E00A15D69 /* PagingViewTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewTableHeaderView.swift; sourceTree = "<group>"; };
+		A49F9AF1265E1AB300A15D69 /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
+		A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInfoView.swift; sourceTree = "<group>"; };
+		A49F9AF5265E1C1300A15D69 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInfoViewCell.swift; sourceTree = "<group>"; };
 		A4B0F7152655310500E1D74C /* MOLADemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOLADemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B0F7182655310500E1D74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B0F7212655310800E1D74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 				A4B0F753265534B200E1D74C /* BaseViewController.swift */,
 				A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */,
 				A4847082265BE51700911559 /* BaseLabel.swift */,
+				A49F9AF5265E1C1300A15D69 /* FollowButton.swift */,
 			);
 			path = BaseCode;
 			sourceTree = "<group>";
@@ -309,6 +318,9 @@
 		A4B0F76926553B7700E1D74C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A49F9AF1265E1AB300A15D69 /* GameInfoView.swift */,
+				A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */,
+				A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */,
 				A49F9ADD265B957E00A15D69 /* Personal */,
 			);
 			path = View;
@@ -458,6 +470,7 @@
 				A49F9AF0265B957E00A15D69 /* PagingViewTableHeaderView.swift in Sources */,
 				A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */,
 				A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */,
+				A49F9AF8265E6A3F00A15D69 /* NewsInfoViewCell.swift in Sources */,
 				A49F9AED265B957E00A15D69 /* JXPagingListContainerView.swift in Sources */,
 				A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */,
 				A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */,
@@ -475,8 +488,11 @@
 				A4847083265BE51700911559 /* BaseLabel.swift in Sources */,
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
 				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,
+				A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */,
 				A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */,
+				A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */,
 				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
+				A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */,
 				A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */,
 				A49F9AEC265B957E00A15D69 /* JXPagingListRefreshView.swift in Sources */,
 				A484707B26565C8500911559 /* Const.swift in Sources */,

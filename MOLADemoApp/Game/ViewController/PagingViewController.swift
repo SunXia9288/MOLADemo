@@ -17,8 +17,8 @@ class PagingViewController: BaseViewController {
     private var userHeaderContainerView: UIView!
     private var segmentedViewDataSource: JXSegmentedTitleDataSource!
     private var segmentedView: JXSegmentedView!
-    private let titles = ["能力", "爱好", "队友"]
-    private var JXTableHeaderViewHeight: Int = 200
+    private let titles = ["动态", "资讯", "精华", "攻略", "吐槽大会", "官方论坛", "超能力"]
+    private var JXTableHeaderViewHeight: Int = 400
     private var JXheightForHeaderInSection: Int = 50
 
     override func viewDidLoad() {
@@ -33,11 +33,10 @@ class PagingViewController: BaseViewController {
         //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
         segmentedViewDataSource.titles = titles
-        segmentedViewDataSource.titleSelectedColor = UIColor(red: 105/255, green: 144/255, blue: 239/255, alpha: 1)
+        segmentedViewDataSource.titleSelectedColor = UIColor.molaColor
         segmentedViewDataSource.titleNormalColor = UIColor.black
         segmentedViewDataSource.isTitleColorGradientEnabled = true
         segmentedViewDataSource.isTitleZoomEnabled = true
-
         segmentedView = JXSegmentedView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXheightForHeaderInSection)))
         segmentedView.backgroundColor = UIColor.white
         segmentedView.dataSource = segmentedViewDataSource
