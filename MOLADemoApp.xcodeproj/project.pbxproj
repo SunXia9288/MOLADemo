@@ -27,6 +27,8 @@
 		A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */; };
 		A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF5265E1C1300A15D69 /* FollowButton.swift */; };
 		A49F9AF8265E6A3F00A15D69 /* NewsInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */; };
+		A49F9AFA265E72A200A15D69 /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AF9265E72A200A15D69 /* DynamicCell.swift */; };
+		A49F9AFC265E742900A15D69 /* UserTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AFB265E742900A15D69 /* UserTopView.swift */; };
 		A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7182655310500E1D74C /* AppDelegate.swift */; };
 		A4B0F7222655310800E1D74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7212655310800E1D74C /* Assets.xcassets */; };
 		A4B0F7252655310800E1D74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B0F7232655310800E1D74C /* LaunchScreen.storyboard */; };
@@ -67,6 +69,8 @@
 		A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInfoView.swift; sourceTree = "<group>"; };
 		A49F9AF5265E1C1300A15D69 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
 		A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInfoViewCell.swift; sourceTree = "<group>"; };
+		A49F9AF9265E72A200A15D69 /* DynamicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
+		A49F9AFB265E742900A15D69 /* UserTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopView.swift; sourceTree = "<group>"; };
 		A4B0F7152655310500E1D74C /* MOLADemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOLADemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B0F7182655310500E1D74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B0F7212655310800E1D74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				A49F9AF1265E1AB300A15D69 /* GameInfoView.swift */,
 				A49F9AF3265E1B9B00A15D69 /* NewsInfoView.swift */,
 				A49F9AF7265E6A3F00A15D69 /* NewsInfoViewCell.swift */,
+				A49F9AF9265E72A200A15D69 /* DynamicCell.swift */,
 				A49F9ADD265B957E00A15D69 /* Personal */,
 			);
 			path = View;
@@ -347,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				A48470802657D50B00911559 /* GameCardCell.swift */,
+				A49F9AFB265E742900A15D69 /* UserTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */,
 				A49F9AEA265B957E00A15D69 /* JXPagingSmoothView.swift in Sources */,
 				A49F9AEE265B957E00A15D69 /* PagingListBaseView.swift in Sources */,
+				A49F9AFA265E72A200A15D69 /* DynamicCell.swift in Sources */,
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
@@ -491,6 +498,7 @@
 				A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */,
 				A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */,
 				A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */,
+				A49F9AFC265E742900A15D69 /* UserTopView.swift in Sources */,
 				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
 				A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */,
 				A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */,

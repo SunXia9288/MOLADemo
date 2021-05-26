@@ -25,7 +25,8 @@ import UIKit
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PagingListBaseCell.self, forCellReuseIdentifier: "cell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(DynamicCell.self, forCellReuseIdentifier: "DynamicCell")
         addSubview(tableView)
     }
 
@@ -58,13 +59,8 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PagingListBaseCell
-        cell.titleLabel.text = dataSource?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicCell", for: indexPath) as! DynamicCell
         return cell
-    }
-
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
