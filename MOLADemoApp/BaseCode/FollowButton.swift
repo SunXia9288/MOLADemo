@@ -17,7 +17,6 @@ class FollowButton: UIButton {
         self.setTitleColor(UIColor.white, for: .selected)
         self.addTarget(self, action: #selector(followClick(_:)), for: .touchUpInside)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        self.clipsToBounds = true
         self.layer.cornerRadius = 4
     }
     

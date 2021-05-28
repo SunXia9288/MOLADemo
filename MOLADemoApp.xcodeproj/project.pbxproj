@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05CBB34932A2CBF6D8F6030B /* Pods_MOLADemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */; };
+		A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAAB7265FC23700B02105 /* OperationBottomView.swift */; };
 		A484707B26565C8500911559 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707A26565C8500911559 /* Const.swift */; };
 		A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707C2657CE8500911559 /* ContentBaseViewController.swift */; };
 		A484707F2657CF8000911559 /* RecommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707E2657CF8000911559 /* RecommentViewController.swift */; };
@@ -50,6 +51,7 @@
 		66DEA93E85B2419118B04B4E /* Pods-MOLADemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOLADemoApp.debug.xcconfig"; path = "Target Support Files/Pods-MOLADemoApp/Pods-MOLADemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOLADemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C82468A7AB5889A75F7705F /* Pods-MOLADemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOLADemoApp.release.xcconfig"; path = "Target Support Files/Pods-MOLADemoApp/Pods-MOLADemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		A45DAAB7265FC23700B02105 /* OperationBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationBottomView.swift; sourceTree = "<group>"; };
 		A484707A26565C8500911559 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		A484707C2657CE8500911559 /* ContentBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseViewController.swift; sourceTree = "<group>"; };
 		A484707E2657CF8000911559 /* RecommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			children = (
 				A48470802657D50B00911559 /* GameCardCell.swift */,
 				A49F9AFB265E742900A15D69 /* UserTopView.swift */,
+				A45DAAB7265FC23700B02105 /* OperationBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
+				A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */,
 				A4847083265BE51700911559 /* BaseLabel.swift in Sources */,
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
 				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,

@@ -36,5 +36,11 @@ extension UIColor {
     class var textGaryColor: UIColor {
         return UIColor(rgb: 0x909090)
     }
+    
+    //分割线颜色
+    class var segmentationColor: UIColor {
+        return UIColor(rgb: 0xE6E6E6)
+    }
+
    
 }

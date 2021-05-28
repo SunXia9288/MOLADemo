@@ -26,6 +26,7 @@ import UIKit
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         tableView.register(DynamicCell.self, forCellReuseIdentifier: "DynamicCell")
         addSubview(tableView)
     }
@@ -60,6 +61,7 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicCell", for: indexPath) as! DynamicCell
+        cell.selectionStyle = .none
         return cell
     }
 

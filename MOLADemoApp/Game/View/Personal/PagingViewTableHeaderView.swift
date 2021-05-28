@@ -40,8 +40,7 @@ class PagingViewTableHeaderView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.text = "视频 20"
         label.textColor = UIColor.white
-        label.backgroundColor = UIColor.red
-        label.clipsToBounds = true
+        label.layer.backgroundColor =  UIColor.red.cgColor
         label.layer.cornerRadius = 4
         label.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleRightMargin.rawValue | AutoresizingMask.flexibleTopMargin.rawValue)
 
@@ -57,8 +56,7 @@ class PagingViewTableHeaderView: UIView {
         label2.font = UIFont.systemFont(ofSize: 14)
         label2.text = "图片 200"
         label2.textColor = UIColor.white
-        label2.backgroundColor = UIColor.red
-        label2.clipsToBounds = true
+        label2.layer.backgroundColor =  UIColor.red.cgColor
         label2.layer.cornerRadius = 4
         label2.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleRightMargin.rawValue | AutoresizingMask.flexibleTopMargin.rawValue)
         self.addSubview(label2)

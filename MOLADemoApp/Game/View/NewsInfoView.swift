@@ -31,7 +31,6 @@ class NewsInfoView: UIView {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(NewsInfoViewCell.self, forCellWithReuseIdentifier: idenContentString)
-        collectionView.clipsToBounds = true
         collectionView.layer.cornerRadius = 4   
         return collectionView
     }()

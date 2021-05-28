@@ -55,7 +55,7 @@ class UserTopView: UIView {
     private func initFrame() {
         userAvatarsImageV.snp.makeConstraints { make in
             make.width.height.equalTo(50)
-            make.left.equalToSuperview().offset(10)
+            make.left.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
@@ -75,7 +75,7 @@ class UserTopView: UIView {
         
         settingButton.snp.makeConstraints { make in
             make.width.height.equalTo(40)
-            make.right.equalToSuperview().offset(-10)
+            make.right.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
