@@ -98,6 +98,10 @@ extension PagingViewController: JXPagingViewDelegate {
         }else {
             list.dataSource = ["【剑士】罗罗诺亚·索隆", "【航海士】娜美", "【狙击手】乌索普", "【厨师】香吉士", "【船医】托尼托尼·乔巴", "【船匠】 弗兰奇", "【音乐家】布鲁克", "【考古学家】妮可·罗宾"]
         }
+        
+        list.listViewDidSelectCallback = { indexPath in
+            self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
+        }
         list.beginFirstRefresh()
         return list
     }

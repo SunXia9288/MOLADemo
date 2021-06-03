@@ -32,4 +32,4 @@ let NavbarSafeHeight = NavbarHeight + KSafeTop
 let TabbarHeight = CGFloat(49.0)
 
 /// 包含安全区域的tabbar高度
-let TabbarSafeHeight = TabbarHeight + KSafeTop
+let TabbarSafeHeight = TabbarHeight + KSafeBottom

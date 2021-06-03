@@ -33,7 +33,7 @@ class BaseTabBarItem: UIControl {
 
         // 布局使用的参数
         let defaulutLabelH: CGFloat = 20.0 // 文字的高度
-        let imgTop: CGFloat = 3
+        let imgTop: CGFloat = 6
         let imgWidth: CGFloat = 25
         let imgLeft: CGFloat = (frame.size.width - imgWidth) / 2
         let imgHeight: CGFloat = frame.size.height - defaulutLabelH - imgTop

@@ -12,9 +12,11 @@ import UIKit
     @objc public var tableView: UITableView!
     @objc public var dataSource: [String]?
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
+    var listViewDidSelectCallback: ((IndexPath) -> ())?
     private var isHeaderRefreshed: Bool = false
     deinit {
         listViewDidScrollCallback = nil
+        listViewDidSelectCallback = nil
     }
 
     override init(frame: CGRect) {
@@ -63,6 +65,10 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicCell", for: indexPath) as! DynamicCell
         cell.selectionStyle = .none
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.listViewDidSelectCallback?(indexPath)
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
