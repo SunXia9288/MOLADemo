@@ -7,33 +7,52 @@
 
 import Foundation
 import UIKit
-import TYAttributedLabel
+
 
 class GameDetailViewController: UIViewController {
     
-    private lazy var scrollerView: UIScrollView = {
-        let scrollerView = UIScrollView()
-        return scrollerView
+    private lazy var gameDetailtableView: UITableView = {
+        let tableView = UITableView.init(frame: CGRect.zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.bgGaryColor
+        tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.register(GameReplyCell.self, forCellReuseIdentifier: "GameReplyCell")
+        return tableView
     }()
     
-    private lazy var label1: TYAttributedLabel = {
-        let label = TYAttributedLabel()
-        return label
-    }()
-    
-    private lazy var label2: TYAttributedLabel = {
-        let label = TYAttributedLabel()
-        return label
-    }()
-    
-    override func loadView() {
-  
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-
+        view.addSubview(gameDetailtableView)
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: 300))
+        header.backgroundColor = UIColor.red
+        // 设置header
+        self.gameDetailtableView.tableHeaderView = header;
+        gameDetailtableView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+        }
     }
     
+}
+
+
+extension GameDetailViewController: UITableViewDelegate,UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameReplyCell", for: indexPath) as! GameReplyCell
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
 }

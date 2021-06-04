@@ -18,6 +18,8 @@
 		A486CCFC26665EA800D2DEAF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486CCFB26665EA800D2DEAF /* UIView+Extension.swift */; };
 		A486CCFE26665F2400D2DEAF /* CornerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486CCFD26665F2400D2DEAF /* CornerBaseCell.swift */; };
 		A486CD0026666B7A00D2DEAF /* GameSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A486CCFF26666B7A00D2DEAF /* GameSectionHeadView.swift */; };
+		A48ABB9D2668FDFB001E82BA /* GameReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABB9C2668FDFB001E82BA /* GameReplyCell.swift */; };
+		A48ABB9F26690162001E82BA /* ToReplyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48ABB9E26690162001E82BA /* ToReplyUserView.swift */; };
 		A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */; };
 		A49F9AD6265B947200A15D69 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AD5265B947200A15D69 /* PagingViewController.swift */; };
 		A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */; };
@@ -65,6 +67,8 @@
 		A486CCFB26665EA800D2DEAF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A486CCFD26665F2400D2DEAF /* CornerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBaseCell.swift; sourceTree = "<group>"; };
 		A486CCFF26666B7A00D2DEAF /* GameSectionHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSectionHeadView.swift; sourceTree = "<group>"; };
+		A48ABB9C2668FDFB001E82BA /* GameReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameReplyCell.swift; sourceTree = "<group>"; };
+		A48ABB9E26690162001E82BA /* ToReplyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToReplyUserView.swift; sourceTree = "<group>"; };
 		A48EEEFA265B4D5D0075C2B2 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		A49F9AD5265B947200A15D69 /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		A49F9AE0265B957E00A15D69 /* JXPagingMainTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingMainTableView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 				A45DAAB92661144500B02105 /* GameCell.swift */,
 				A486CCFF26666B7A00D2DEAF /* GameSectionHeadView.swift */,
 				A486CCFD26665F2400D2DEAF /* CornerBaseCell.swift */,
+				A48ABB9C2668FDFB001E82BA /* GameReplyCell.swift */,
+				A48ABB9E26690162001E82BA /* ToReplyUserView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,7 +525,9 @@
 				A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */,
 				A49F9AFC265E742900A15D69 /* UserTopView.swift in Sources */,
 				A486CCFC26665EA800D2DEAF /* UIView+Extension.swift in Sources */,
+				A48ABB9F26690162001E82BA /* ToReplyUserView.swift in Sources */,
 				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
+				A48ABB9D2668FDFB001E82BA /* GameReplyCell.swift in Sources */,
 				A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */,
 				A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */,
 				A49F9AEC265B957E00A15D69 /* JXPagingListRefreshView.swift in Sources */,

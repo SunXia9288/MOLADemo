@@ -8,5 +8,4 @@ target 'MOLADemoApp' do
   pod 'SVProgressHUD'
   pod 'MJRefresh'
   pod 'JXSegmentedView'
-  pod 'TYAttributedLabel', '~> 2.6.2'
 end
