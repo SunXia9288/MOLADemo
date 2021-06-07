@@ -94,8 +94,6 @@ class OperationBottomView: UIView {
         shareButton.setTitle("分享", for: .normal)
         replyButton.setTitle("回复", for: .normal)
         upButton.setTitle("点赞", for: .normal)
-        
-        
     }
     
 }

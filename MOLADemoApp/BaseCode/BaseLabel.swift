@@ -23,3 +23,20 @@ class BaseLabel: UILabel {
         return rect
     }
 }
+
+class BaseLabel2: UILabel {
+    
+    let insets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+    override func drawText(in rect: CGRect) {
+       
+        super.drawText(in: rect.inset(by: insets))
+    }
+    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        var rect = super .textRect(forBounds: bounds.inset(by: insets), limitedToNumberOfLines: numberOfLines)
+        rect.origin.x -= insets.left
+        rect.origin.y -= insets.top
+        rect.size.width += insets.left + insets.right
+        rect.size.height += insets.top + insets.bottom
+        return rect
+    }
+}

@@ -75,7 +75,6 @@ class GameCell: CornerBaseCell {
         
         let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
         iconImgV.kf.setImage(with: url)
-        
         titleLabel.text = "发现好游戏"
         contLabel.text = "25新帖-六月新游预告: 《格尔莫斯》"
     }

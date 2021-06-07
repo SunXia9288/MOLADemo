@@ -24,17 +24,32 @@ class GameDetailViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var publishView: PublishBottomView = {
+        let view = PublishBottomView()
+        view.delegate = self
+        return view
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         view.addSubview(gameDetailtableView)
+        view.addSubview(publishView)
+        
         let header = UIView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: 300))
         header.backgroundColor = UIColor.red
         // 设置header
         self.gameDetailtableView.tableHeaderView = header;
         gameDetailtableView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalToSuperview()
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(publishView.snp.top)
+        }
+        
+        publishView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-KSafeBottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(50)
         }
     }
     
@@ -55,4 +70,11 @@ extension GameDetailViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+}
+
+extension GameDetailViewController: PublishBottomViewProtocol{
+    func publicClick() {
+        self.navigationController?.pushViewController(CommentEditViewController(), animated: true)
+    }
+    
 }

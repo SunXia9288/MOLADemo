@@ -29,25 +29,25 @@ class ToReplyUserView: UIView {
     
     func initUI() {
         addSubview(replyContentLabel)
-        replyContentLabel.backgroundColor = UIColor.textGaryColor
+        replyContentLabel.backgroundColor = UIColor.bgGaryColor
         replyContentLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-15)
-            make.bottom.equalToSuperview().offset(-10)
+            make.top.bottom.left.right.equalToSuperview()
         }
     }
     
     func initModel() {
-        let atterstring = NSMutableAttributedString(string: "这是一段可点击的文字，点击百度去浏览网页吧")
+        let nickName = "我是个小白用户:"
+        let contStr = "这个游戏我比较喜欢，但是你说的这些，太过激进，可以稍微给他们一些颜面。"
+        let atterstring = NSMutableAttributedString(string: nickName + contStr)
         let nsString = NSString(string: atterstring.string)
-        let nsRange = nsString.range(of: "百度")
-        atterstring.addAttribute(NSAttributedString.Key.link, value: "https://www.baidu.com", range: nsRange)
+        let nsRange = nsString.range(of: nickName)
+        atterstring.addAttribute(NSAttributedString.Key.link, value: "http://baidu.com", range: nsRange)
         
-        atterstring.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14), range: NSRange.init(location: 0, length: atterstring.length))
+        atterstring.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 13), range: NSRange.init(location: 0, length: atterstring.length))
         
         replyContentLabel.attributedText = atterstring
-        replyContentLabel.linkTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.blue, NSAttributedString.Key.underlineColor: UIColor.molaColor]
+        replyContentLabel.textColor = UIColor.textGaryColor
+        replyContentLabel.linkTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.molaColor]
         
     }
 }
