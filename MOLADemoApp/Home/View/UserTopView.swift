@@ -38,7 +38,7 @@ class UserTopView: UIView {
         super.init(frame: frame)
         initUI()
         initFrame()
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +80,7 @@ class UserTopView: UIView {
         }
     }
     
-    private func initModel() {
+    private func setModel() {
         userAvatarsImageV.backgroundColor = UIColor.red
         userAvatarsImageV.clipsToBounds = true
         userAvatarsImageV.layer.cornerRadius = 25

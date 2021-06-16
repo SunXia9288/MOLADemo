@@ -20,7 +20,7 @@ class ToReplyUserView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +35,7 @@ class ToReplyUserView: UIView {
         }
     }
     
-    func initModel() {
+    func setModel() {
         let nickName = "我是个小白用户:"
         let contStr = "这个游戏我比较喜欢，但是你说的这些，太过激进，可以稍微给他们一些颜面。"
         let atterstring = NSMutableAttributedString(string: nickName + contStr)

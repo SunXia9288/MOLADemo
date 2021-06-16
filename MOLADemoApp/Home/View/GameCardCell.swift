@@ -68,7 +68,6 @@ class GameCardCell: UITableViewCell {
         setModel()
     }
 
-    @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -139,7 +138,7 @@ class GameCardCell: UITableViewCell {
         titleLabel.text = "天地劫 江湖再见"
         tipsLabel.text = "手游 - 3D - RPG"
         
-        logoLabel.text = "MOLA"
+        logoLabel.text = "RILLA"
         scoreLabel.text = "4.0"
     }
     

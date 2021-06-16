@@ -20,6 +20,7 @@ class GameInfoView: UIView {
         let button = FollowButton(type: .custom)
         return button
     }()
+    
     private lazy var numbersTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white

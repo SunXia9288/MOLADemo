@@ -41,14 +41,14 @@ class GameSectionHeadView: UIView {
             make.centerY.equalToSuperview()
         }
         
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initModel() {
+    func setModel() {
         titleLabel.text = "热门社区"
         rightButton.setTitle("查看更多", for: .normal)
     }

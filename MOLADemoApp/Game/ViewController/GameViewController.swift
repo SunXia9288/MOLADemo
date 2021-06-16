@@ -19,6 +19,11 @@ class GameViewController: BaseViewController {
         tableView.backgroundColor = UIColor.bgGaryColor
         tableView.showsVerticalScrollIndicator = false
         tableView.register(GameCell.self, forCellReuseIdentifier: "GameCell")
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        } else {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         return tableView
     }()
     
@@ -28,7 +33,7 @@ class GameViewController: BaseViewController {
         view.backgroundColor = UIColor.bgGaryColor
         initUI()
         initFrame()
-        initModel()
+        setModel()
     }
     
     private func initUI() {
@@ -44,7 +49,7 @@ class GameViewController: BaseViewController {
         }
     }
     
-    private func initModel() {
+    private func setModel() {
     
     }
 }
@@ -78,7 +83,7 @@ extension GameViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

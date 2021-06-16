@@ -23,7 +23,6 @@ class HomeViewController: BaseViewController {
             make.width.height.equalTo(50)
             make.center.equalTo(view)
         }
-        button.backgroundColor = UIColor.red
         button.addTarget(self, action: #selector(click), for: .touchUpInside)
     }
 
@@ -32,7 +31,7 @@ class HomeViewController: BaseViewController {
         vc.title = "游戏列表"
         let dataSource = JXSegmentedTitleDataSource()
         dataSource.isTitleColorGradientEnabled = true
-        dataSource.titles = ["关注", "推荐", "即将到来"]
+        dataSource.titles = ["推荐", "新游", "排行榜", "快讯"]
         dataSource.itemWidth = view.bounds.size.width / 3
         dataSource.itemSpacing = 0
         dataSource.isTitleZoomEnabled = true
@@ -45,6 +44,7 @@ class HomeViewController: BaseViewController {
         let indicator = JXSegmentedIndicatorLineView()
         indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
         indicator.isIndicatorWidthSameAsItemContent = true
+        indicator.indicatorColor = UIColor.molaColor
         vc.segmentedView.indicators = [indicator]
 
         navigationController?.pushViewController(vc, animated: true)

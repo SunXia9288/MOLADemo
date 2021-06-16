@@ -38,7 +38,7 @@ class CommentEditViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = item
 
         initUI()
-        initModel()
+        setModel()
         
         replyTextView.becomeFirstResponder() 
     }
@@ -69,7 +69,7 @@ class CommentEditViewController: BaseViewController {
         }
     }
     
-    func initModel() {
+    func setModel() {
         replyLabel.text = "这里显示的内容是被回复者的内容，如果直接回复楼主，这里则不会显示。"
         replyTextView.text = "说点什么吧"
     }

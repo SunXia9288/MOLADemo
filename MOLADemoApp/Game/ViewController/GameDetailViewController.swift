@@ -21,6 +21,11 @@ class GameDetailViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(GameReplyCell.self, forCellReuseIdentifier: "GameReplyCell")
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        } else {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         return tableView
     }()
     

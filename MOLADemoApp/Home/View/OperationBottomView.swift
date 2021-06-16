@@ -41,7 +41,7 @@ class OperationBottomView: UIView {
         super.init(frame: frame)
         initUI()
         initFrame()
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
@@ -89,7 +89,7 @@ class OperationBottomView: UIView {
     }
     
     
-    func initModel() {
+    func setModel() {
         leftLabel.text = "综合"
         shareButton.setTitle("分享", for: .normal)
         replyButton.setTitle("回复", for: .normal)

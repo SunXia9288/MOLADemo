@@ -10,6 +10,16 @@
 		05CBB34932A2CBF6D8F6030B /* Pods_MOLADemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */; };
 		A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAAB7265FC23700B02105 /* OperationBottomView.swift */; };
 		A45DAABA2661144500B02105 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAAB92661144500B02105 /* GameCell.swift */; };
+		A45EF5B726722C1C0077093C /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5B626722C1C0077093C /* UserHeaderView.swift */; };
+		A45EF5B9267232BC0077093C /* RillaPointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5B8267232BC0077093C /* RillaPointsCell.swift */; };
+		A45EF5BB267239550077093C /* RillaPointsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BA267239550077093C /* RillaPointsCollectionView.swift */; };
+		A45EF5BD2678436F0077093C /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BC2678436F0077093C /* NewGameViewController.swift */; };
+		A45EF5BF267843E10077093C /* NewGameBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BE267843E10077093C /* NewGameBannerCell.swift */; };
+		A45EF5C1267843F30077093C /* NewGameTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C0267843F30077093C /* NewGameTitleCell.swift */; };
+		A45EF5C3267898AD0077093C /* RankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C2267898AD0077093C /* RankingListViewController.swift */; };
+		A45EF5C5267899000077093C /* RankingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C4267899000077093C /* RankingListCell.swift */; };
+		A45EF5C726789A3B0077093C /* RankingTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */; };
+		A45EF5C926789B600077093C /* RankingTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C826789B600077093C /* RankingTypeCell.swift */; };
 		A484707B26565C8500911559 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707A26565C8500911559 /* Const.swift */; };
 		A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707C2657CE8500911559 /* ContentBaseViewController.swift */; };
 		A484707F2657CF8000911559 /* RecommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484707E2657CF8000911559 /* RecommentViewController.swift */; };
@@ -45,7 +55,6 @@
 		A4B0F754265534B200E1D74C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F753265534B200E1D74C /* BaseViewController.swift */; };
 		A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */; };
 		A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7572655385B00E1D74C /* UIcolor+Extension.swift */; };
-		A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F759265539F900E1D74C /* HomeViewController.swift */; };
 		A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75B26553A1D00E1D74C /* GameViewController.swift */; };
 		A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75D26553A3100E1D74C /* NotViewController.swift */; };
 		A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75F26553A4200E1D74C /* SettingViewController.swift */; };
@@ -61,6 +70,16 @@
 		9C82468A7AB5889A75F7705F /* Pods-MOLADemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOLADemoApp.release.xcconfig"; path = "Target Support Files/Pods-MOLADemoApp/Pods-MOLADemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		A45DAAB7265FC23700B02105 /* OperationBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationBottomView.swift; sourceTree = "<group>"; };
 		A45DAAB92661144500B02105 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		A45EF5B626722C1C0077093C /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
+		A45EF5B8267232BC0077093C /* RillaPointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RillaPointsCell.swift; sourceTree = "<group>"; };
+		A45EF5BA267239550077093C /* RillaPointsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RillaPointsCollectionView.swift; sourceTree = "<group>"; };
+		A45EF5BC2678436F0077093C /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		A45EF5BE267843E10077093C /* NewGameBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameBannerCell.swift; sourceTree = "<group>"; };
+		A45EF5C0267843F30077093C /* NewGameTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameTitleCell.swift; sourceTree = "<group>"; };
+		A45EF5C2267898AD0077093C /* RankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewController.swift; sourceTree = "<group>"; };
+		A45EF5C4267899000077093C /* RankingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListCell.swift; sourceTree = "<group>"; };
+		A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTypeCollectionView.swift; sourceTree = "<group>"; };
+		A45EF5C826789B600077093C /* RankingTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTypeCell.swift; sourceTree = "<group>"; };
 		A484707A26565C8500911559 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		A484707C2657CE8500911559 /* ContentBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseViewController.swift; sourceTree = "<group>"; };
 		A484707E2657CF8000911559 /* RecommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +117,6 @@
 		A4B0F753265534B200E1D74C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		A4B0F7572655385B00E1D74C /* UIcolor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
-		A4B0F759265539F900E1D74C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A4B0F75B26553A1D00E1D74C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A4B0F75D26553A3100E1D74C /* NotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotViewController.swift; sourceTree = "<group>"; };
 		A4B0F75F26553A4200E1D74C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +153,23 @@
 				78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A45EF5B426722BF10077093C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A45EF5B626722C1C0077093C /* UserHeaderView.swift */,
+				A45EF5B8267232BC0077093C /* RillaPointsCell.swift */,
+				A45EF5BA267239550077093C /* RillaPointsCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A45EF5B526722BF70077093C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A484707926565C7500911559 /* Config */ = {
@@ -238,8 +273,8 @@
 		A4B0F74C265531F300E1D74C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				A4B0F76326553AB300E1D74C /* View */,
-				A4B0F76226553A8100E1D74C /* Model */,
+				A45EF5B526722BF70077093C /* Model */,
+				A45EF5B426722BF10077093C /* View */,
 				A4B0F76126553A5700E1D74C /* ViewController */,
 			);
 			path = Setting;
@@ -283,20 +318,6 @@
 				A4B0F75F26553A4200E1D74C /* SettingViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		A4B0F76226553A8100E1D74C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A4B0F76326553AB300E1D74C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A4B0F76426553AF600E1D74C /* ViewController */ = {
@@ -361,8 +382,9 @@
 			isa = PBXGroup;
 			children = (
 				A484707C2657CE8500911559 /* ContentBaseViewController.swift */,
-				A4B0F759265539F900E1D74C /* HomeViewController.swift */,
 				A484707E2657CF8000911559 /* RecommentViewController.swift */,
+				A45EF5BC2678436F0077093C /* NewGameViewController.swift */,
+				A45EF5C2267898AD0077093C /* RankingListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -379,7 +401,12 @@
 			children = (
 				A48470802657D50B00911559 /* GameCardCell.swift */,
 				A49F9AFB265E742900A15D69 /* UserTopView.swift */,
+				A45EF5C4267899000077093C /* RankingListCell.swift */,
+				A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */,
+				A45EF5C826789B600077093C /* RankingTypeCell.swift */,
 				A45DAAB7265FC23700B02105 /* OperationBottomView.swift */,
+				A45EF5BE267843E10077093C /* NewGameBannerCell.swift */,
+				A45EF5C0267843F30077093C /* NewGameTitleCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,21 +532,28 @@
 				A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */,
 				A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */,
 				A49F9AF8265E6A3F00A15D69 /* NewsInfoViewCell.swift in Sources */,
+				A45EF5C1267843F30077093C /* NewGameTitleCell.swift in Sources */,
 				A49F9AED265B957E00A15D69 /* JXPagingListContainerView.swift in Sources */,
 				A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */,
 				A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */,
 				A49F9AD6265B947200A15D69 /* PagingViewController.swift in Sources */,
 				A49F9AEF265B957E00A15D69 /* PagingListBaseCell.swift in Sources */,
+				A45EF5B726722C1C0077093C /* UserHeaderView.swift in Sources */,
 				A4B0F7742655579E00E1D74C /* UIImage+Extension.swift in Sources */,
 				A4B0F77026554F4C00E1D74C /* BaseTabBarView.swift in Sources */,
+				A45EF5BD2678436F0077093C /* NewGameViewController.swift in Sources */,
 				A4B0F754265534B200E1D74C /* BaseViewController.swift in Sources */,
 				A4B0F7192655310500E1D74C /* AppDelegate.swift in Sources */,
+				A45EF5C726789A3B0077093C /* RankingTypeCollectionView.swift in Sources */,
+				A45EF5C5267899000077093C /* RankingListCell.swift in Sources */,
 				A49F9AEA265B957E00A15D69 /* JXPagingSmoothView.swift in Sources */,
 				A49F9AEE265B957E00A15D69 /* PagingListBaseView.swift in Sources */,
 				A49F9AFA265E72A200A15D69 /* DynamicCell.swift in Sources */,
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
+				A45EF5B9267232BC0077093C /* RillaPointsCell.swift in Sources */,
 				A48ABBDD266E36BC001E82BA /* PublishBottomView.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
+				A45EF5C926789B600077093C /* RankingTypeCell.swift in Sources */,
 				A45DAABA2661144500B02105 /* GameCell.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
 				A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */,
@@ -529,17 +563,19 @@
 				A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */,
 				A486CD0026666B7A00D2DEAF /* GameSectionHeadView.swift in Sources */,
 				A48ABBDF266E4196001E82BA /* CommentEditViewController.swift in Sources */,
-				A4B0F75A265539F900E1D74C /* HomeViewController.swift in Sources */,
+				A45EF5BB267239550077093C /* RillaPointsCollectionView.swift in Sources */,
 				A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */,
 				A49F9AFC265E742900A15D69 /* UserTopView.swift in Sources */,
 				A486CCFC26665EA800D2DEAF /* UIView+Extension.swift in Sources */,
 				A48ABB9F26690162001E82BA /* ToReplyUserView.swift in Sources */,
+				A45EF5BF267843E10077093C /* NewGameBannerCell.swift in Sources */,
 				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
 				A48ABB9D2668FDFB001E82BA /* GameReplyCell.swift in Sources */,
 				A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */,
 				A49F9AEB265B957E00A15D69 /* JXPagingView.swift in Sources */,
 				A49F9AEC265B957E00A15D69 /* JXPagingListRefreshView.swift in Sources */,
 				A484707B26565C8500911559 /* Const.swift in Sources */,
+				A45EF5C3267898AD0077093C /* RankingListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = MZ8SP3X9CP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MOLADemoApp/Info.plist;
@@ -689,6 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mola.MOLADemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -703,6 +741,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = MZ8SP3X9CP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MOLADemoApp/Info.plist;
@@ -710,6 +749,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mola.MOLADemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

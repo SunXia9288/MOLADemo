@@ -41,7 +41,7 @@ class GameReplyCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initUI()
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +90,7 @@ class GameReplyCell: UITableViewCell {
         }
     }
     
-    func initModel() {
+    func setModel() {
         replyContentLabel.text = "至少在我看来江湖不是打打杀杀，详情参考武林外传。至少我认为的江湖应该是有感情的，有烟火气的，有留恋的和自己所爱的。这才是江湖。没参加内测，但是从看到这款游戏开始就一直在等待，我希望它能还原给我一个我心目中的一个江湖。是的，江湖悠悠做到了，至少在我心目中是做到了。"
     }
 }

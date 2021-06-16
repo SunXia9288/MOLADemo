@@ -37,7 +37,7 @@ class GameCell: CornerBaseCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier )
         initUI()
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
@@ -71,7 +71,7 @@ class GameCell: CornerBaseCell {
         }
         
     }
-    private func initModel() {
+    private func setModel() {
         
         let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
         iconImgV.kf.setImage(with: url)

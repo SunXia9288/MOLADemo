@@ -16,6 +16,10 @@ extension UIColor {
     convenience init(rgb: UInt, alpha: Float) {
         self.init(red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgb & 0x0000FF) / 255.0, alpha: CGFloat(alpha))
     }
+    
+    convenience init(r:UInt, g:UInt, b:UInt, a:UInt) {
+        self.init(red: CGFloat(Double(r) / 255.0), green: CGFloat(Double(g) / 255.0), blue: CGFloat(Double(r) / 255.0), alpha: CGFloat(a))
+    }
 
     class var molaColor: UIColor {
         return UIColor(rgb: 0x369CF6)
@@ -37,10 +41,19 @@ extension UIColor {
         return UIColor(rgb: 0x909090)
     }
     
+    class var pitchGreenColor: UIColor {
+        return UIColor(rgb: 0x6FB651)
+    }
+    
     //分割线颜色
     class var segmentationColor: UIColor {
         return UIColor(rgb: 0xE6E6E6)
     }
 
-   
+    //随机色颜色
+    class var randomColor: UIColor {
+        return UIColor(r: UInt(arc4random_uniform(256)), g: UInt(arc4random_uniform(256)), b: UInt(arc4random_uniform(256)), a: 1)
+        
+    }
+
 }

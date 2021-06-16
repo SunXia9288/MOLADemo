@@ -81,14 +81,14 @@ class PublishBottomView: UIView {
             make.height.equalTo(30)
         }
         
-        initModel()
+        setModel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initModel() {
+    func setModel() {
         publishLabel.text = "说点什么吧。。。"
         shareButton.setTitle("分享", for: .normal)
         upButton.setTitle("点赞", for: .normal)

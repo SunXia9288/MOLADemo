@@ -86,13 +86,14 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
                 let anyClass: AnyClass? = NSClassFromString(clsName + "." + controllerNameArray[i])
                 // 将AnyClass类型转换为BaseViewController类型，
                 // 因为Swift中通过一个Class来创建一个对象, 必须告诉系统这个Class的确切类型
-                if let vcClassType = anyClass as? ContentBaseViewController.Type {
+                let titles = ["推荐", "新游", "排行榜", "快讯"]
+                if (anyClass as? ContentBaseViewController.Type) != nil {
                     let vc = ContentBaseViewController()
                     vc.title = "游戏列表"
                     let dataSource = JXSegmentedTitleDataSource()
                     dataSource.isTitleColorGradientEnabled = true
-                    dataSource.titles = ["关注", "推荐", "即将到来"]
-                    dataSource.itemWidth = view.bounds.size.width / 3
+                    dataSource.titles = titles
+                    dataSource.itemWidth = KScreenWidth / CGFloat(titles.count)
                     dataSource.itemSpacing = 0
                     dataSource.isTitleZoomEnabled = true
                     dataSource.titleNormalColor = UIColor.normalGaryColor
@@ -104,6 +105,7 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
                     let indicator = JXSegmentedIndicatorLineView()
                     indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
                     indicator.isIndicatorWidthSameAsItemContent = true
+                    indicator.indicatorColor = UIColor.molaColor
                     vc.segmentedView.indicators = [indicator]
                     let nav = BaseNavigationController(rootViewController: vc)
                     nvcArray.append(nav)
