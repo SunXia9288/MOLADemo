@@ -8,4 +8,5 @@ target 'MOLADemoApp' do
   pod 'SVProgressHUD'
   pod 'MJRefresh'
   pod 'JXSegmentedView'
+  pod 'ObjectMapper', '~> 3.5'
 end
