@@ -1,5 +1,5 @@
 //
-//  RillaPointsCollectionView.swift
+//  MOLAPointsCollectionView.swift
 //  MOLADemoApp
 //
 //  Created by 夏宗斌 on 2021/6/10.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RillaPointsCollectionView: UIView {
+class MOLAPointsCollectionView: UIView {
     
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
     var listViewDidSelectCallback: ((IndexPath) -> ())?
@@ -26,7 +26,7 @@ class RillaPointsCollectionView: UIView {
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.bgGaryColor
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(RillaPointsCell.self, forCellWithReuseIdentifier: "RillaPointsCell")
+        collectionView.register(MOLAPointsCell.self, forCellWithReuseIdentifier: "MOLAPointsCell")
         return collectionView
     }()
     
@@ -45,13 +45,13 @@ class RillaPointsCollectionView: UIView {
     }
 }
 
-extension RillaPointsCollectionView: UICollectionViewDelegate,UICollectionViewDataSource{
+extension MOLAPointsCollectionView: UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RillaPointsCell", for: indexPath) as! RillaPointsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MOLAPointsCell", for: indexPath) as! MOLAPointsCell
         return cell
     }
     
@@ -64,7 +64,7 @@ extension RillaPointsCollectionView: UICollectionViewDelegate,UICollectionViewDa
     }
 }
 
-extension RillaPointsCollectionView: JXPagingViewListViewDelegate {
+extension MOLAPointsCollectionView: JXPagingViewListViewDelegate {
     public func listView() -> UIView {
         return self
     }

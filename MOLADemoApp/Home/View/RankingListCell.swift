@@ -8,21 +8,11 @@
 import UIKit
 
 class RankingListCell: UITableViewCell {
-    
-    
-    private lazy var rankNumLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.orange
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        return label
-    }()
-    
+
     private lazy var icon: UIImageView = {
         let imgv = UIImageView()
-        imgv.backgroundColor = UIColor.blue
         imgv.contentMode = .scaleAspectFill
         imgv.clipsToBounds = true
-        imgv.layer.cornerRadius = 8
         return imgv
     }()
     
@@ -49,11 +39,19 @@ class RankingListCell: UITableViewCell {
         return label
     }()
     
-    private lazy var followButton: FollowButton = {
-        let button = FollowButton(type: .custom)
-        button.backgroundColor = UIColor.molaColor
+    private lazy var downloadButton: DownloadButton = {
+        let button = DownloadButton(type: .custom)
         return button
     }()
+    
+    public var type: String?
+    
+    public var model: RankingModel? {
+        didSet{
+            setModel()
+            downloadButton.model = model?.uri
+        }
+    }
     
     
     override init(style: UITableViewCell.CellStyle  , reuseIdentifier: String?) {
@@ -67,60 +65,76 @@ class RankingListCell: UITableViewCell {
     }
     
     func initUI() {
-        contentView.addSubview(rankNumLabel)
         contentView.addSubview(icon)
         contentView.addSubview(titleLabel)
         contentView.addSubview(hotLabel)
         contentView.addSubview(onLineTimeLabel)
-        contentView.addSubview(followButton)
+        contentView.addSubview(downloadButton)
         
-        rankNumLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(10)
-            make.centerY.equalToSuperview()
-        }
-        
+
         icon.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
-            make.left.equalTo(rankNumLabel.snp.right).offset(5)
+            make.left.equalToSuperview().offset(15)
             make.width.height.equalTo(70)
             make.bottom.equalToSuperview().offset(-15)
         }
         
+        titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right).offset(10)
-            make.right.equalTo(followButton.snp.left).offset(-5)
+            make.right.lessThanOrEqualTo(downloadButton.snp.left).offset(-5)
             make.top.equalTo(icon)
             make.height.equalTo(20)
         }
         
+        hotLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         hotLabel.snp.makeConstraints { make in
-            make.left.right.equalTo(titleLabel)
+            make.left.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.right.lessThanOrEqualTo(downloadButton.snp.left).offset(-5)
             make.height.equalTo(20)
         }
         
+        onLineTimeLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         onLineTimeLabel.snp.makeConstraints { make in
             make.left.equalTo(titleLabel)
-            make.right.equalToSuperview().offset(-10)
+            make.right.lessThanOrEqualTo(downloadButton.snp.left).offset(-5)
             make.top.equalTo(hotLabel.snp.bottom).offset(4)
             make.height.equalTo(20)
-      
         }
         
-        followButton.snp.makeConstraints { make in
-            make.width.equalTo(78)
-            make.height.equalTo(35)
-            make.right.equalToSuperview().offset(-10)
+        downloadButton.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        downloadButton.snp.makeConstraints { make in
+            make.height.equalTo(28)
+            make.right.equalToSuperview().offset(-15)
             make.top.equalTo(icon)
         }
+
     }
     
     func setModel() {
-        rankNumLabel.text = "1"
-        
-        titleLabel.text = "鬼泣-巅峰之战（送传说武器）"
-        hotLabel.text = "22万下载 1.89G"
-        onLineTimeLabel.text = "06月11日凌晨00:30正式上线06月11日凌晨00:30正式上线06月11日凌晨00:30正式上线"
+        if let model = model {
+            let url = URL(string: (model.icon?.url ?? ""))
+            icon.kf.setImage(with: url)
+            
+            titleLabel.text = model.title
+           
+            if type == "reserve" {
+                let pvCount = NSNumber.init(value: (model.stat?.pv_count ?? 0))
+                hotLabel.text = "\(pvCount.stringValue) 热度"
+            }else{
+                let downloadCount = NSNumber.init(value: (model.stat?.download_count ?? 0))
+                hotLabel.text = "\(downloadCount.stringValue) 下载"
+            }
+            
+            if let array = model.tags?.map({ (stu) in
+                return stu.value
+            }) , array.count > 0{
+                onLineTimeLabel.text = array.joined(separator: " ")
+            }else{
+                onLineTimeLabel.text = model.author
+            }
+        }
     }
 }
 

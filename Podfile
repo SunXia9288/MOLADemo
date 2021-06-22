@@ -9,4 +9,9 @@ target 'MOLADemoApp' do
   pod 'MJRefresh'
   pod 'JXSegmentedView'
   pod 'ObjectMapper', '~> 3.5'
+  pod 'Alamofire', '~> 5.4'
+  pod 'SwiftyJSON'
+  pod 'Moya'
+  pod 'HandyJSON', '~> 5.0.2'
+  pod 'MJRefresh'
 end

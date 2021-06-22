@@ -105,7 +105,7 @@ extension SettingViewController: JXPagingViewDelegate {
             list.beginFirstRefresh()
             return list
         }else {
-            let list = RillaPointsCollectionView()
+            let list = MOLAPointsCollectionView()
             list.listViewDidSelectCallback = { indexPath in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }

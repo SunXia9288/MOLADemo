@@ -7,17 +7,39 @@
 
 import JXSegmentedView
 import UIKit
+import Alamofire
+import SwiftyJSON
+import HandyJSON
+import MJRefresh
 
 class RankingListViewController: UIViewController {
     
     static let RankingListCellIdentifier = "RankingListCellIdentifier"
     
+    private var rankingList: [RankingModel] = []
+    
+    private var nextPage: String?
+    
+    private var typeList = ["hot","reserve","pop","new"]
+    
+    private var typeTitleList = ["热门","预约","热玩","新品"]
+    
+    private var nextFrom: Int = 15
+    
+    private var currentIndex: Int = 0 {
+        didSet{
+            getData()
+        }
+    }
+    
     private lazy var topTypeView: RankingTypeCollectionView = {
         let topTypeView = RankingTypeCollectionView()
+        topTypeView.titles = typeTitleList
+        topTypeView.delegate = self
         return topTypeView
     }()
     
-    private lazy var newGameTableView: UITableView = {
+    private lazy var rankingTableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,13 +58,22 @@ class RankingListViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         setConstraints()
-        setModel()
+        getData()
     }
 
     func initUI() {
         view.addSubview(topTypeView)
-        view.addSubview(newGameTableView)
-        newGameTableView.backgroundColor = UIColor.bgGaryColor
+        view.addSubview(rankingTableView)
+        rankingTableView.backgroundColor = UIColor.bgGaryColor
+        
+        rankingTableView.mj_header = MJRefreshNormalHeader() { [weak self] in
+            guard let self = self else {return}
+            self.getData()
+        }
+        rankingTableView.mj_footer = MJRefreshBackNormalFooter() { [weak self] in
+            guard let self = self else {return}
+            self.getNextPageData()
+        }
     }
 
     func setConstraints() {
@@ -52,26 +83,70 @@ class RankingListViewController: UIViewController {
             make.height.equalTo(50)
         }
         
-        newGameTableView.snp.makeConstraints { make in
+        rankingTableView.snp.makeConstraints { make in
             make.top.equalTo(topTypeView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
     }
     
-    func setModel() {
-        
+    func getData() {
+        NetWorkRequest(.rankingList(parameters: ["X-UA" : "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "platform" : "ios","type_name" : typeList[currentIndex]])) {[weak self] (responseString) -> (Void) in
+            guard let self = self else {return}
+            // 游戏列表数据
+            let json = JSON(responseString)
+            if let modelData = (JSONDeserializer<RankingBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
+                if let list = modelData.list {
+                    self.rankingList = list
+                    self.rankingTableView.reloadData()
+                }
+                self.nextPage = modelData.next_page
+            }
+            self.rankingTableView.mj_header?.endRefreshing()
+        } failed: {[weak self] (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+            self?.rankingTableView.mj_header?.endRefreshing()
+        } errorResult: {[weak self] () -> (Void) in
+            print("网络异常")
+            self?.rankingTableView.mj_header?.endRefreshing()
+        }
+
+    }
+    
+    func getNextPageData() {
+        NetWorkRequest(.rankingList(parameters: ["X-UA" : "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "platform" : "ios","type_name" : typeList[currentIndex],"from" : nextFrom, "limit" : 15] )) {[weak self] (responseString) -> (Void) in
+            guard let self = self else {return}
+            // 游戏列表数据
+            let json = JSON(responseString)
+            if let modelData = (JSONDeserializer<RankingBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
+                if let list = modelData.list {
+                    self.nextFrom += 15
+                    self.rankingList += list
+                    self.rankingTableView.reloadData()
+                }
+                self.nextPage = modelData.next_page
+            }
+            self.rankingTableView.mj_footer?.endRefreshing()
+        } failed: {[weak self] (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+            self?.rankingTableView.mj_footer?.endRefreshing()
+        } errorResult: {[weak self] () -> (Void) in
+            print("网络异常")
+            self?.rankingTableView.mj_footer?.endRefreshing()
+        }
     }
 }
 
 extension RankingListViewController: UITableViewDelegate, UITableViewDataSource {
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.rankingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:RankingListCell = tableView.dequeueReusableCell(withIdentifier: RankingListViewController.RankingListCellIdentifier, for:indexPath) as! RankingListCell
         cell.selectionStyle = .none
+        cell.type = typeList[currentIndex]
+        cell.model = rankingList[indexPath.row]
         return cell
          
     }
@@ -86,4 +161,8 @@ extension RankingListViewController: JXSegmentedListContainerViewListDelegate {
         return view
     }
 }
-
+extension RankingListViewController: RankingTypeProtocol {
+    func didSelectItemAt(index: Int) {
+        currentIndex = index
+    }
+}

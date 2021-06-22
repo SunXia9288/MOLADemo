@@ -35,4 +35,13 @@ let TabbarHeight = CGFloat(49.0)
 let TabbarSafeHeight = TabbarHeight + KSafeBottom
 
 
-
+func timeIntervalChangeToTimeStr(timeInterval:TimeInterval, dateFormat:String?) -> String {
+      let date:NSDate = NSDate.init(timeIntervalSince1970: timeInterval)
+      let formatter = DateFormatter.init()
+      if dateFormat == nil {
+          formatter.dateFormat = "MM月dd日"
+      }else{
+          formatter.dateFormat = dateFormat
+      }
+      return formatter.string(from: date as Date)
+}

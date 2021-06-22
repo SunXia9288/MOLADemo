@@ -1,5 +1,5 @@
 //
-//  RillaPointsCell.swift
+//  MOLAPointsCell.swift
 //  MOLADemoApp
 //
 //  Created by 夏宗斌 on 2021/6/10.
@@ -8,7 +8,7 @@
 import UIKit
 
 //积分兑换-商品展示cell
-class RillaPointsCell: UICollectionViewCell {
+class MOLAPointsCell: UICollectionViewCell {
     
     //商品图片
     private lazy var goodsImgV: UIImageView = {
@@ -91,7 +91,7 @@ class RillaPointsCell: UICollectionViewCell {
         
         goodsTitle.text = "【618推荐】【虞书欣同款】Nike Air Force 1 07 low 空军一号 白色 板鞋 (GS)"
         
-        goodsPrice.text = "2000 Rilla"
+        goodsPrice.text = "2000 MOLA"
         
         goodsHot.text = "32145热度"
     }

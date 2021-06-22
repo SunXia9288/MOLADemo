@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol RankingTypeProtocol: AnyObject {
+    func didSelectItemAt(index : Int)
+}
+
 class RankingTypeCollectionView: UIView {
+    
+    weak var delegate: RankingTypeProtocol?
     
     static let RankingTypeCellIdentifier = "RankingTypeCellIdentifier"
     
-    private var titles: [String] = ["新游","预约","网游"]
+    public var titles: [String] = []
     
     private lazy var index: Int = 0 {
         didSet {
@@ -78,6 +84,7 @@ extension RankingTypeCollectionView: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         index = indexPath.row
+        self.delegate?.didSelectItemAt(index: indexPath.row)
     }
     
 }

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		05CBB34932A2CBF6D8F6030B /* Pods_MOLADemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */; };
+		A410FCF826816D9000C85D77 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCF526816D9000C85D77 /* APIProvider.swift */; };
+		A410FCF926816D9000C85D77 /* MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCF626816D9000C85D77 /* MoyaConfig.swift */; };
+		A410FCFA26816D9000C85D77 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCF726816D9000C85D77 /* NetworkManager.swift */; };
+		A410FCFC2681713100C85D77 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCFB2681713100C85D77 /* CommonModel.swift */; };
+		A410FCFE2681B6F200C85D77 /* NewGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCFD2681B6F200C85D77 /* NewGameModel.swift */; };
+		A410FD002681B7A300C85D77 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FCFF2681B7A300C85D77 /* GameModel.swift */; };
+		A410FD022681DF7C00C85D77 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FD012681DF7C00C85D77 /* DownloadButton.swift */; };
+		A410FD042681F3FE00C85D77 /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410FD032681F3FE00C85D77 /* RankingModel.swift */; };
 		A42DF9AA267A1A7B005F6EF4 /* RecommentGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42DF9A9267A1A7B005F6EF4 /* RecommentGameModel.swift */; };
 		A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAAB7265FC23700B02105 /* OperationBottomView.swift */; };
 		A45DAABA2661144500B02105 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DAAB92661144500B02105 /* GameCell.swift */; };
@@ -15,8 +23,8 @@
 		A45EF5B9267232BC0077093C /* RillaPointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5B8267232BC0077093C /* RillaPointsCell.swift */; };
 		A45EF5BB267239550077093C /* RillaPointsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BA267239550077093C /* RillaPointsCollectionView.swift */; };
 		A45EF5BD2678436F0077093C /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BC2678436F0077093C /* NewGameViewController.swift */; };
-		A45EF5BF267843E10077093C /* NewGameBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BE267843E10077093C /* NewGameBannerCell.swift */; };
-		A45EF5C1267843F30077093C /* NewGameTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C0267843F30077093C /* NewGameTitleCell.swift */; };
+		A45EF5BF267843E10077093C /* NewSmallBannerTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5BE267843E10077093C /* NewSmallBannerTitleCell.swift */; };
+		A45EF5C1267843F30077093C /* NewBigBannerTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C0267843F30077093C /* NewBigBannerTitleCell.swift */; };
 		A45EF5C3267898AD0077093C /* RankingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C2267898AD0077093C /* RankingListViewController.swift */; };
 		A45EF5C5267899000077093C /* RankingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C4267899000077093C /* RankingListCell.swift */; };
 		A45EF5C726789A3B0077093C /* RankingTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */; };
@@ -69,15 +77,24 @@
 		66DEA93E85B2419118B04B4E /* Pods-MOLADemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOLADemoApp.debug.xcconfig"; path = "Target Support Files/Pods-MOLADemoApp/Pods-MOLADemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		78D022B2B14D1DE35158DA30 /* Pods_MOLADemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOLADemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C82468A7AB5889A75F7705F /* Pods-MOLADemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOLADemoApp.release.xcconfig"; path = "Target Support Files/Pods-MOLADemoApp/Pods-MOLADemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		A410FCF526816D9000C85D77 /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		A410FCF626816D9000C85D77 /* MoyaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaConfig.swift; sourceTree = "<group>"; };
+		A410FCF726816D9000C85D77 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A410FCFB2681713100C85D77 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		A410FCFD2681B6F200C85D77 /* NewGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameModel.swift; sourceTree = "<group>"; };
+		A410FCFF2681B7A300C85D77 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		A410FD012681DF7C00C85D77 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
+		A410FD032681F3FE00C85D77 /* RankingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
 		A42DF9A9267A1A7B005F6EF4 /* RecommentGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentGameModel.swift; sourceTree = "<group>"; };
+		A42DF9AC267AF228005F6EF4 /* MOLADemoAppDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOLADemoAppDebug.entitlements; sourceTree = "<group>"; };
 		A45DAAB7265FC23700B02105 /* OperationBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationBottomView.swift; sourceTree = "<group>"; };
 		A45DAAB92661144500B02105 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A45EF5B626722C1C0077093C /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
 		A45EF5B8267232BC0077093C /* RillaPointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RillaPointsCell.swift; sourceTree = "<group>"; };
 		A45EF5BA267239550077093C /* RillaPointsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RillaPointsCollectionView.swift; sourceTree = "<group>"; };
 		A45EF5BC2678436F0077093C /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
-		A45EF5BE267843E10077093C /* NewGameBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameBannerCell.swift; sourceTree = "<group>"; };
-		A45EF5C0267843F30077093C /* NewGameTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameTitleCell.swift; sourceTree = "<group>"; };
+		A45EF5BE267843E10077093C /* NewSmallBannerTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSmallBannerTitleCell.swift; sourceTree = "<group>"; };
+		A45EF5C0267843F30077093C /* NewBigBannerTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBigBannerTitleCell.swift; sourceTree = "<group>"; };
 		A45EF5C2267898AD0077093C /* RankingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListViewController.swift; sourceTree = "<group>"; };
 		A45EF5C4267899000077093C /* RankingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListCell.swift; sourceTree = "<group>"; };
 		A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTypeCollectionView.swift; sourceTree = "<group>"; };
@@ -157,10 +174,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A410FCEE2680AFCF00C85D77 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A410FCF526816D9000C85D77 /* APIProvider.swift */,
+				A410FCF626816D9000C85D77 /* MoyaConfig.swift */,
+				A410FCF726816D9000C85D77 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		A42DF9A8267A1A40005F6EF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A42DF9A9267A1A7B005F6EF4 /* RecommentGameModel.swift */,
+				A410FD032681F3FE00C85D77 /* RankingModel.swift */,
+				A410FCFD2681B6F200C85D77 /* NewGameModel.swift */,
+				A410FCFF2681B7A300C85D77 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,10 +264,12 @@
 		A4B0F7172655310500E1D74C /* MOLADemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				A484707926565C7500911559 /* Config */,
+				A42DF9AC267AF228005F6EF4 /* MOLADemoAppDebug.entitlements */,
 				A4B0F7212655310800E1D74C /* Assets.xcassets */,
 				A4B0F7182655310500E1D74C /* AppDelegate.swift */,
 				A4B0F7232655310800E1D74C /* LaunchScreen.storyboard */,
+				A484707926565C7500911559 /* Config */,
+				A410FCEE2680AFCF00C85D77 /* Network */,
 				A4B0F7522655349D00E1D74C /* BaseCode */,
 				A4B0F74F2655326000E1D74C /* Tabbar */,
 				A4B0F74D2655321300E1D74C /* Categories */,
@@ -318,6 +350,8 @@
 				A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */,
 				A4847082265BE51700911559 /* BaseLabel.swift */,
 				A49F9AF5265E1C1300A15D69 /* FollowButton.swift */,
+				A410FD012681DF7C00C85D77 /* DownloadButton.swift */,
+				A410FCFB2681713100C85D77 /* CommonModel.swift */,
 			);
 			path = BaseCode;
 			sourceTree = "<group>";
@@ -408,8 +442,8 @@
 				A45EF5C626789A3B0077093C /* RankingTypeCollectionView.swift */,
 				A45EF5C826789B600077093C /* RankingTypeCell.swift */,
 				A45DAAB7265FC23700B02105 /* OperationBottomView.swift */,
-				A45EF5BE267843E10077093C /* NewGameBannerCell.swift */,
-				A45EF5C0267843F30077093C /* NewGameTitleCell.swift */,
+				A45EF5BE267843E10077093C /* NewSmallBannerTitleCell.swift */,
+				A45EF5C0267843F30077093C /* NewBigBannerTitleCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -535,7 +569,8 @@
 				A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */,
 				A48EEEFB265B4D5D0075C2B2 /* GameDetailViewController.swift in Sources */,
 				A49F9AF8265E6A3F00A15D69 /* NewsInfoViewCell.swift in Sources */,
-				A45EF5C1267843F30077093C /* NewGameTitleCell.swift in Sources */,
+				A45EF5C1267843F30077093C /* NewBigBannerTitleCell.swift in Sources */,
+				A410FCF826816D9000C85D77 /* APIProvider.swift in Sources */,
 				A49F9AED265B957E00A15D69 /* JXPagingListContainerView.swift in Sources */,
 				A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */,
 				A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */,
@@ -554,25 +589,32 @@
 				A49F9AFA265E72A200A15D69 /* DynamicCell.swift in Sources */,
 				A484707D2657CE8500911559 /* ContentBaseViewController.swift in Sources */,
 				A45EF5B9267232BC0077093C /* RillaPointsCell.swift in Sources */,
+				A410FCF926816D9000C85D77 /* MoyaConfig.swift in Sources */,
 				A48ABBDD266E36BC001E82BA /* PublishBottomView.swift in Sources */,
 				A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */,
 				A42DF9AA267A1A7B005F6EF4 /* RecommentGameModel.swift in Sources */,
 				A45EF5C926789B600077093C /* RankingTypeCell.swift in Sources */,
 				A45DAABA2661144500B02105 /* GameCell.swift in Sources */,
 				A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */,
+				A410FCFE2681B6F200C85D77 /* NewGameModel.swift in Sources */,
 				A45DAAB8265FC23700B02105 /* OperationBottomView.swift in Sources */,
 				A4847083265BE51700911559 /* BaseLabel.swift in Sources */,
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
+				A410FCFA26816D9000C85D77 /* NetworkManager.swift in Sources */,
+				A410FCFC2681713100C85D77 /* CommonModel.swift in Sources */,
 				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,
 				A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */,
 				A486CD0026666B7A00D2DEAF /* GameSectionHeadView.swift in Sources */,
+				A410FD002681B7A300C85D77 /* GameModel.swift in Sources */,
 				A48ABBDF266E4196001E82BA /* CommentEditViewController.swift in Sources */,
 				A45EF5BB267239550077093C /* RillaPointsCollectionView.swift in Sources */,
 				A49F9AF4265E1B9B00A15D69 /* NewsInfoView.swift in Sources */,
 				A49F9AFC265E742900A15D69 /* UserTopView.swift in Sources */,
 				A486CCFC26665EA800D2DEAF /* UIView+Extension.swift in Sources */,
+				A410FD022681DF7C00C85D77 /* DownloadButton.swift in Sources */,
 				A48ABB9F26690162001E82BA /* ToReplyUserView.swift in Sources */,
-				A45EF5BF267843E10077093C /* NewGameBannerCell.swift in Sources */,
+				A45EF5BF267843E10077093C /* NewSmallBannerTitleCell.swift in Sources */,
+				A410FD042681F3FE00C85D77 /* RankingModel.swift in Sources */,
 				A49F9AE9265B957E00A15D69 /* JXPagingMainTableView.swift in Sources */,
 				A48ABB9D2668FDFB001E82BA /* GameReplyCell.swift in Sources */,
 				A49F9AF6265E1C1300A15D69 /* FollowButton.swift in Sources */,
@@ -721,8 +763,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MOLADemoApp/MOLADemoAppDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = MZ8SP3X9CP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MOLADemoApp/Info.plist;
@@ -745,7 +788,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = MZ8SP3X9CP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MOLADemoApp/Info.plist;

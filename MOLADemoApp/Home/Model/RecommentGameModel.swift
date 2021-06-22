@@ -5,30 +5,25 @@
 //  Created by 夏宗斌 on 2021/6/16.
 //
 
-import ObjectMapper
+import UIKit
+import HandyJSON
 
-class RecommentGameModel: Mappable {
-    var username: String?
-    var age: Int?
-    var weight: Double!
-    var birthday: Date?
-    var array: [AnyObject]?
-    var dictionary: [String : AnyObject] = [:]
-     
-    init(){
-        
-    }
-     
-    required init?(map: Map) {
-    }
-     
-    // Mappable
-    func mapping(map: Map) {
-        username    <- map["username"]
-        age         <- map["age"]
-        weight      <- map["weight"]
-        birthday    <- (map["birthday"], DateTransform())
-        array       <- map["arr"]
-        dictionary  <- map["dict"]
-    }
+struct RecommentBaseModel: HandyJSON {
+    var list: [RecommentGameModel]?
+    var next_page: String?
+}
+
+// 游戏信息
+struct RecommentGameModel: HandyJSON {
+    var image: ImageModel?
+    var via: String = ""
+    var title: String = ""
+    var contents: String = ""
+    var web_url: String = ""
+    var icon: ImageModel?
+    var category: String = ""
+    var app_summary: AppSummaryModel?
+    var tags: [TagsModel]?
+    var uri: UriModel?
+    var rating: RatingModel?
 }

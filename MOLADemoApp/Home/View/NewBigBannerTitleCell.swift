@@ -1,5 +1,5 @@
 //
-//  NewGameTitleCell.swift
+//  NewBigBannerTitleCell.swift
 //  MOLADemoApp
 //
 //  Created by 夏宗斌 on 2021/6/15.
@@ -14,8 +14,11 @@ class NewGameTopView: UIView {
     
     private lazy var tipButton: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setTitleColor(UIColor.molaColor, for: .normal)
+        btn.backgroundColor = UIColor.lightRedAlphaColor
+        btn.setTitleColor(UIColor.lightRedColor, for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+
         return btn
     }()
     
@@ -25,6 +28,12 @@ class NewGameTopView: UIView {
         label.textColor = UIColor.textGaryColor
         return label
     }()
+    
+    public var model: NewGameModel? {
+        didSet{
+            setModel()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,8 +63,23 @@ class NewGameTopView: UIView {
     }
     
     func setModel() {
-        tipButton.setTitle("首发", for: .normal)
-        timeLabel.text = "11:00"
+        if let model = model {
+            tipButton.setTitle(model.type_label, for: .normal)
+            timeLabel.text = timeIntervalChangeToTimeStr(timeInterval: TimeInterval(model.event_at), dateFormat: " HH:mm")
+            
+            if model.type_label == "首发" {
+                tipButton.backgroundColor = UIColor.lightRedAlphaColor
+                tipButton.setTitleColor(UIColor.lightRedColor, for: .normal)
+            }else{
+                tipButton.backgroundColor = UIColor.downloadBGColor
+                tipButton.setTitleColor(UIColor.downloadTitleColor, for: .normal)
+            }
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tipButton.roundCorners(corners: [.topLeft, .topRight], radius: 4.0)
     }
 }
 
@@ -75,10 +99,17 @@ class NewGameBottomView: UIView {
         return label
     }()
     
-    private lazy var followButton: FollowButton = {
-        let button = FollowButton(type: .custom)
+    private lazy var downloadButton: DownloadButton = {
+        let button = DownloadButton(type: .custom)
         return button
     }()
+    
+    public var model: NewGameModel? {
+        didSet{
+            setModel()
+            downloadButton.model = model?.app?.uri
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,42 +124,51 @@ class NewGameBottomView: UIView {
     func initUI() {
         addSubview(gameLabel)
         addSubview(introLabel)
-        addSubview(followButton)
+        addSubview(downloadButton)
+        gameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         gameLabel.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.top.equalToSuperview()
+            make.right.lessThanOrEqualTo(downloadButton.snp.left).offset(-10)
         }
         
+        introLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         introLabel.snp.makeConstraints { make in
             make.left.equalTo(gameLabel)
             make.top.equalTo(gameLabel.snp.bottom).offset(10)
             make.bottom.equalToSuperview()
+            make.right.lessThanOrEqualTo(downloadButton.snp.left).offset(-10)
         }
         
-        followButton.snp.makeConstraints { make in
-            make.width.equalTo(78)
+        downloadButton.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        downloadButton.snp.makeConstraints { make in
             make.height.equalTo(28)
-            make.right.equalToSuperview().offset(-15)
+            make.right.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
     
     func setModel() {
-        gameLabel.text = "崩坏3"
-        introLabel.text = "[崩坏3 x 原神] 联动开启"
+        if let model = model {
+            gameLabel.text = model.app?.title
+            introLabel.text = model.rec_text
+        }
     }
 }
 
 
-class NewGameTitleCell: UITableViewCell {
+class NewBigBannerTitleCell: UITableViewCell {
     
     private lazy var newGameTopView: NewGameTopView = {
         let view = NewGameTopView()
-        return view
+        view.backgroundColor = UIColor.white
+        return view 
     }()
     
     private lazy var imgV: UIImageView = {
         let imgV = UIImageView()
+        imgV.contentMode = .scaleAspectFill
+        imgV.clipsToBounds = true
         return imgV
     }()
     
@@ -136,6 +176,14 @@ class NewGameTitleCell: UITableViewCell {
         let view = NewGameBottomView()
         return view
     }()
+    
+    public var model: NewGameModel? {
+        didSet{
+            setModel()
+            newGameTopView.model = model
+            newGameBottomView.model = model
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -161,19 +209,30 @@ class NewGameTitleCell: UITableViewCell {
         imgV.snp.makeConstraints { make in
             make.top.equalTo(newGameTopView.snp.bottom)
             make.left.right.equalTo(newGameTopView)
-            make.height.equalTo(135)
+            make.height.equalTo((KScreenWidth - 20.0*2)*0.65)
         }
         
         newGameBottomView.snp.makeConstraints { make in
             make.top.equalTo(imgV.snp.bottom).offset(10)
             make.left.right.equalTo(newGameTopView)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-20)
         }
+        
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     func setModel() {
-        let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
-        imgV.kf.setImage(with: url)
+        if let model = model {
+            let url = URL(string: (model.image?.url ?? ""))
+            imgV.kf.setImage(with: url, placeholder: nil, options: nil) {[weak self] result in
+                guard let self = self else { return }
+                self.imgV.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 4.0)
+            }
+//
+        }
     }
-    
 }

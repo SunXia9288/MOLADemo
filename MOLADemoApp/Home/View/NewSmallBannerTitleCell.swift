@@ -1,5 +1,5 @@
 //
-//  NewGameBannerCell.swift
+//  NewSmallBannerTitleCell.swift
 //  MOLADemoApp
 //
 //  Created by 夏宗斌 on 2021/6/15.
@@ -8,22 +8,26 @@
 // banner+ 游戏信息
 import UIKit
 
-class NewGameBannerCell: UITableViewCell {
+class NewSmallBannerTitleCell: UITableViewCell {
     
     private lazy var banner: UIImageView = {
         let imgv = UIImageView()
+        imgv.clipsToBounds = true
+        imgv.layer.cornerRadius = 8.0
+        imgv.contentMode = .scaleAspectFill
         return imgv
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.textBlackColor
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
     
     private lazy var tagButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitleColor(UIColor.randomColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         return button
     }()
     
@@ -31,8 +35,15 @@ class NewGameBannerCell: UITableViewCell {
         let label = UILabel()
         label.textColor = UIColor.textGaryColor
         label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
+    
+    public var model: NewGameModel? {
+        didSet{
+            setModel()
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,8 +63,8 @@ class NewGameBannerCell: UITableViewCell {
         
         banner.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(20)
-            make.width.equalTo(175)
-            make.height.equalTo(100)
+            make.width.equalTo(142)
+            make.height.equalTo(80)
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
@@ -67,7 +78,6 @@ class NewGameBannerCell: UITableViewCell {
         tagButton.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.left.equalTo(titleLabel)
-            make.height.equalTo(30)
         }
         
         descriptionLabel.snp.makeConstraints { make in
@@ -77,12 +87,21 @@ class NewGameBannerCell: UITableViewCell {
     }
     
     func setModel() {
-        let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
-        banner.kf.setImage(with: url)
-        
-        titleLabel.text = "天地劫 江湖再见"
-        tagButton.setTitle("首发", for: .normal)
-        descriptionLabel.text = "对战型卡牌TCG，10大英灵娘，575种卡牌库，开起卡牌对战。"
+        if let model = model {
+            let url = URL(string: (model.image?.url ?? ""))
+            banner.kf.setImage(with: url)
+            
+            titleLabel.text = model.app?.title
+            tagButton.setTitle(model.type_label, for: .normal)
+            descriptionLabel.text = model.rec_text
+            
+            if model.type_label == "首发" {
+                tagButton.setTitleColor(UIColor.lightRedColor, for: .normal)
+            }else{
+                tagButton.setTitleColor(UIColor.downloadTitleColor, for: .normal)
+            }
+        }
+  
         
     }
 }

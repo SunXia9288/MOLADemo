@@ -44,6 +44,11 @@ class GameCardCell: UITableViewCell {
         return label
     }()
     
+    private lazy var rightView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private lazy var logoLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.molaColor
@@ -59,6 +64,12 @@ class GameCardCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 26)
         return label
     }()
+    
+    public var model: RecommentGameModel? {
+        didSet{
+            setModel()
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -78,8 +89,10 @@ class GameCardCell: UITableViewCell {
         bgView.addSubview(styleLabel)
         bgView.addSubview(titleLabel)
         bgView.addSubview(tipsLabel)
-        bgView.addSubview(logoLabel)
-        bgView.addSubview(scoreLabel)
+        
+        bgView.addSubview(rightView)
+        rightView.addSubview(logoLabel)
+        rightView.addSubview(scoreLabel)
     }
 
     func setConstraints() {
@@ -100,12 +113,14 @@ class GameCardCell: UITableViewCell {
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(banner.snp.bottom).offset(10)
             make.height.equalTo(20)
+            make.right.lessThanOrEqualTo(rightView.snp.left)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(styleLabel.snp.bottom).offset(5)
             make.height.equalTo(25)
+            make.right.lessThanOrEqualTo(rightView.snp.left)
         }
         
         tipsLabel.snp.makeConstraints { make in
@@ -113,33 +128,53 @@ class GameCardCell: UITableViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.height.equalTo(20)
             make.bottom.equalToSuperview().offset(-15)
+            make.right.lessThanOrEqualTo(rightView.snp.left)
+        }
+        
+        rightView.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview().offset(((KScreenWidth - 16.0*2)*0.56)/2)
         }
         
         logoLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview()
+            make.right.left.top.equalToSuperview()
             make.height.equalTo(20)
             make.width.equalTo(80)
-            make.top.equalTo(styleLabel.snp.top)
         }
         
         scoreLabel.snp.makeConstraints { make in
             make.width.equalTo(logoLabel.snp.width)
             make.centerX.equalTo(logoLabel.snp.centerX)
             make.top.equalTo(logoLabel.snp.bottom).offset(8)
+            make.bottom.equalToSuperview()
         }
         
     }
     
     func setModel() {
-        let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
+        
+        guard model != nil else { return }
+        let url = URL(string: (model!.image?.url ?? ""))
         banner.kf.setImage(with: url)
         
-        styleLabel.text = "#15 热门榜"
-        titleLabel.text = "天地劫 江湖再见"
-        tipsLabel.text = "手游 - 3D - RPG"
+        styleLabel.text = model!.via
+        titleLabel.text = model!.title
+        if model!.contents  == "" {
+            if let array = model?.app_summary?.tags?.map({ (stu) in
+                return stu.value
+            }) , array.count > 0{
+                tipsLabel.text = array.joined(separator: " ")
+            }else{
+                tipsLabel.text = "欢迎来到MOLA世界"
+            }
+           
+        }else {
+            tipsLabel.text = model!.contents
+        }
+       
         
-        logoLabel.text = "RILLA"
-        scoreLabel.text = "4.0"
+        logoLabel.text = "MOLA"
+        scoreLabel.text = model!.rating?.score ?? "5.0"
     }
     
 }

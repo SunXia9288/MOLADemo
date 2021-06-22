@@ -49,6 +49,25 @@ extension UIColor {
     class var segmentationColor: UIColor {
         return UIColor(rgb: 0xE6E6E6)
     }
+    
+    //浅红色底色
+    class var lightRedColor: UIColor {
+        return UIColor(rgb: 0xFF9C6B)
+    }
+    //浅红色底色(带透明度)
+    class var lightRedAlphaColor: UIColor {
+        return UIColor(rgb: 0xFF9C6B, alpha: 0.1)
+    }
+    
+    //下载按钮底色 15c5ce
+    class var downloadBGColor: UIColor {
+        return UIColor(rgb: 0x15C5CE, alpha: 0.1)
+    }
+    
+    //下载按钮底色 15c5ce
+    class var downloadTitleColor: UIColor {
+        return UIColor(rgb: 0x15C5CE)
+    }
 
     //随机色颜色
     class var randomColor: UIColor {
