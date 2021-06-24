@@ -9,18 +9,18 @@ import UIKit
 import HandyJSON
 
 struct RankingBaseModel: HandyJSON {
-    var list: [RankingModel]?
+    var list: [GameModel]?
     var next_page: String?
     var total: Int = -1
 }
 
-struct RankingModel: HandyJSON {
-    var id: Int = -1
-    var title: String = ""
-    var icon: ImageModel?
-    var stat: StatModel?
-    var tags: [TagsModel]?
-    var author: String = ""
-    var uri: UriModel?
-    
-}
+//struct RankingModel: HandyJSON {
+//    var id: Int = -1
+//    var title: String = ""
+//    var icon: ImageModel?
+//    var stat: StatModel?
+//    var tags: [TagsModel]?
+//    var author: String = ""
+//    var uri: UriModel?
+//
+//}

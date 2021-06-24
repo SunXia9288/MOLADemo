@@ -12,6 +12,14 @@ class PagingViewTableHeaderView: UIView {
     var imageView: UIImageView!
     var imageViewFrame: CGRect!
     
+    var model: GameModel?{
+        didSet{
+            setModel()
+            gameInfoView.model = model
+            
+        }
+    }
+    
     private var gameInfoView: GameInfoView = {
         let view = GameInfoView()
         return view
@@ -37,10 +45,10 @@ class PagingViewTableHeaderView: UIView {
         imageViewFrame = imageView.frame
 
         let label = BaseLabel()
+        label.tag = 1000
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "视频 20"
         label.textColor = UIColor.white
-        label.layer.backgroundColor =  UIColor.red.cgColor
+        label.layer.backgroundColor = UIColor.lightBlackBGColor.cgColor
         label.layer.cornerRadius = 4
         label.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleRightMargin.rawValue | AutoresizingMask.flexibleTopMargin.rawValue)
 
@@ -53,10 +61,10 @@ class PagingViewTableHeaderView: UIView {
         }
         
         let label2 = BaseLabel()
+        label2.tag = 1001
         label2.font = UIFont.systemFont(ofSize: 14)
-        label2.text = "图片 200"
         label2.textColor = UIColor.white
-        label2.layer.backgroundColor =  UIColor.red.cgColor
+        label2.layer.backgroundColor = UIColor.lightBlackBGColor.cgColor
         label2.layer.cornerRadius = 4
         label2.autoresizingMask = AutoresizingMask(rawValue: AutoresizingMask.flexibleRightMargin.rawValue | AutoresizingMask.flexibleTopMargin.rawValue)
         self.addSubview(label2)
@@ -67,10 +75,6 @@ class PagingViewTableHeaderView: UIView {
             make.bottom.equalTo(imageView.snp.bottom).offset(-5)
         }
         
-        let url = URL(string: "https://static-tapad.tapdb.net/MjM5MDk1MkA2MGE4ODI3NmQ4Yjcx.jpg?imageView2/0/w/1280/q/80/format/jpg/interlace/1/ignore-error/1")
-        imageView.kf.setImage(with: url)
-        
-        
         //head中层
         addSubview(gameInfoView)
         
@@ -79,11 +83,26 @@ class PagingViewTableHeaderView: UIView {
             make.left.right.equalToSuperview()
         }
         
-        addSubview(newsInfoView)
-        newsInfoView.snp.makeConstraints { make in
-            make.top.equalTo(gameInfoView.snp.bottom).offset(10)
-            make.left.right.equalToSuperview()
+//        addSubview(newsInfoView)
+//        newsInfoView.snp.makeConstraints { make in
+//            make.top.equalTo(gameInfoView.snp.bottom).offset(10)
+//            make.left.right.equalToSuperview()
+//        }
+    }
+    
+    func setModel() {
+        if let model = model {
+            let url = URL(string: model.banner?.url ?? "")
+            imageView.kf.setImage(with: url)
+            
+            let label = viewWithTag(1000) as? BaseLabel
+            let albumNum = NSNumber.init(value: model.stat?.album_count ?? 0)
+            label?.text = "图片 \(albumNum.stringValue)"
+            let label2 = viewWithTag(1001) as? BaseLabel
+            let videoNum = NSNumber.init(value: model.stat?.video_count ?? 0)
+            label2?.text = "视频 \(videoNum.stringValue)"
         }
+
     }
 
     func scrollViewDidScroll(contentOffsetY: CGFloat) {

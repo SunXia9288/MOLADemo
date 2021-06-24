@@ -16,7 +16,7 @@ class RankingListViewController: UIViewController {
     
     static let RankingListCellIdentifier = "RankingListCellIdentifier"
     
-    private var rankingList: [RankingModel] = []
+    private var rankingList: [GameModel] = []
     
     private var nextPage: String?
     
@@ -156,7 +156,9 @@ extension RankingListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(PagingViewController(), animated: true)
+        let vc = PagingViewController()
+        vc.gameModel = rankingList[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 
 class GameDetailViewController: UIViewController {
     
+
     private lazy var gameDetailtableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .plain)
         tableView.dataSource = self

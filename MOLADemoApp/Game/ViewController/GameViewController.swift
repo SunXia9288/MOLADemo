@@ -100,6 +100,7 @@ extension GameViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         navigationController?.pushViewController(PagingViewController(), animated: true)
     }
 }

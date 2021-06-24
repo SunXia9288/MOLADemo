@@ -18,8 +18,10 @@ class PagingViewController: BaseViewController {
     private var segmentedViewDataSource: JXSegmentedTitleDataSource!
     private var segmentedView: JXSegmentedView!
     private let titles = ["动态", "资讯", "精华", "攻略", "吐槽大会", "官方论坛", "超能力"]
-    private var JXTableHeaderViewHeight: Int = 400
+    private var JXTableHeaderViewHeight: Int = 280
     private var JXheightForHeaderInSection: Int = 50
+    
+    public var gameModel: GameModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,8 @@ class PagingViewController: BaseViewController {
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
         userHeaderContainerView.addSubview(userHeaderView)
-
+        userHeaderView.model = gameModel
+        
         //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
         segmentedViewDataSource.titles = titles

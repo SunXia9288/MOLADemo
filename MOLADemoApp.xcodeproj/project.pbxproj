@@ -65,7 +65,7 @@
 		A4B0F7512655327500E1D74C /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7502655327500E1D74C /* BaseTabbarController.swift */; };
 		A4B0F754265534B200E1D74C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F753265534B200E1D74C /* BaseViewController.swift */; };
 		A4B0F756265535AC00E1D74C /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */; };
-		A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7572655385B00E1D74C /* UIcolor+Extension.swift */; };
+		A4B0F7582655385B00E1D74C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F7572655385B00E1D74C /* UIColor+Extension.swift */; };
 		A4B0F75C26553A1D00E1D74C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75B26553A1D00E1D74C /* GameViewController.swift */; };
 		A4B0F75E26553A3100E1D74C /* NotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75D26553A3100E1D74C /* NotViewController.swift */; };
 		A4B0F76026553A4200E1D74C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F75F26553A4200E1D74C /* SettingViewController.swift */; };
@@ -139,7 +139,7 @@
 		A4B0F7502655327500E1D74C /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
 		A4B0F753265534B200E1D74C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A4B0F755265535AC00E1D74C /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
-		A4B0F7572655385B00E1D74C /* UIcolor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
+		A4B0F7572655385B00E1D74C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A4B0F75B26553A1D00E1D74C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A4B0F75D26553A3100E1D74C /* NotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotViewController.swift; sourceTree = "<group>"; };
 		A4B0F75F26553A4200E1D74C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		A4B0F74D2655321300E1D74C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				A4B0F7572655385B00E1D74C /* UIcolor+Extension.swift */,
+				A4B0F7572655385B00E1D74C /* UIColor+Extension.swift */,
 				A4B0F7732655579E00E1D74C /* UIImage+Extension.swift */,
 				A486CCFB26665EA800D2DEAF /* UIView+Extension.swift */,
 				A410FD052683263A00C85D77 /* UIViewController+Extension.swift */,
@@ -610,7 +610,7 @@
 				A4B0F77226554F5A00E1D74C /* BaseTabBarItem.swift in Sources */,
 				A410FCFA26816D9000C85D77 /* NetworkManager.swift in Sources */,
 				A410FCFC2681713100C85D77 /* CommonModel.swift in Sources */,
-				A4B0F7582655385B00E1D74C /* UIcolor+Extension.swift in Sources */,
+				A4B0F7582655385B00E1D74C /* UIColor+Extension.swift in Sources */,
 				A49F9AF2265E1AB300A15D69 /* GameInfoView.swift in Sources */,
 				A486CD0026666B7A00D2DEAF /* GameSectionHeadView.swift in Sources */,
 				A410FD002681B7A300C85D77 /* GameModel.swift in Sources */,

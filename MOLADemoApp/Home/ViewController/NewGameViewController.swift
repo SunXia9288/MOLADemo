@@ -293,7 +293,9 @@ extension NewGameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(PagingViewController(), animated: true)
+        let vc = PagingViewController()
+        vc.gameModel = newGameList[indexPath.section][indexPath.row].app
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

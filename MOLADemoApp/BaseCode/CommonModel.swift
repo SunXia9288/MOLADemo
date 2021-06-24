@@ -45,6 +45,9 @@ struct StatModel: HandyJSON {
     var play_count: Int = -1
     var download_count: Int = -1
     var pv_count = -1
+    var video_count: Int = -1
+    var album_count: Int = -1
+    var feed_count: Int = -1
 }
 
 struct RatingModel: HandyJSON {

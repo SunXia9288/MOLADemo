@@ -68,6 +68,11 @@ extension UIColor {
     class var downloadTitleColor: UIColor {
         return UIColor(rgb: 0x15C5CE)
     }
+    
+    //透明度的黑色 0.3
+    class var lightBlackBGColor: UIColor {
+        return UIColor(rgb: 0x000000, alpha: 0.3)
+    }
 
     //随机色颜色
     class var randomColor: UIColor {

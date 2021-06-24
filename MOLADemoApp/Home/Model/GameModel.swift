@@ -20,4 +20,5 @@ struct GameModel: HandyJSON {
     var tags: [TagsModel]?
     var stat: StatModel?
     var released_time: Int = -1
+    var author: String = ""
 }

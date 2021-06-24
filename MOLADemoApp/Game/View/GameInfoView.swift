@@ -16,8 +16,8 @@ class GameInfoView: UIView {
         return label
     }()
     
-    private lazy var followButton: FollowButton = {
-        let button = FollowButton(type: .custom)
+    private lazy var downloadButton: DownloadButton = {
+        let button = DownloadButton(type: .custom)
         return button
     }()
     
@@ -27,10 +27,18 @@ class GameInfoView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
+    
     private lazy var NewsInfoView: UIView = {
         let view = UIView()
         return view
     }()
+    
+    public var model: GameModel? {
+        didSet{
+            setModel()
+            downloadButton.model = model?.uri
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,9 +53,9 @@ class GameInfoView: UIView {
     
     private func initUI() {
         addSubview(titleLabel)
-        addSubview(followButton)
+        addSubview(downloadButton)
         addSubview(numbersTitleLabel)
-        addSubview(NewsInfoView)
+//        addSubview(NewsInfoView)
     }
     
     private func initFrame() {
@@ -56,8 +64,7 @@ class GameInfoView: UIView {
             make.top.equalToSuperview().offset(15)
         }
         
-        followButton.snp.makeConstraints { make in
-            make.width.equalTo(78)
+        downloadButton.snp.makeConstraints { make in
             make.height.equalTo(28)
             make.right.equalToSuperview().offset(-15)
             make.centerY.equalTo(titleLabel)
@@ -72,7 +79,12 @@ class GameInfoView: UIView {
     }
     
     private func setModel() {
-        titleLabel.text = "明日方舟"
-        numbersTitleLabel.text = "488万关注 - 68万动态"
+        if let model = model {
+            titleLabel.text = model.title
+    //        numbersTitleLabel.text = "488万关注 - 68万动态"
+            let followNum = NSNumber.init(value: model.stat?.fans_count ?? 0)
+            let feedNum = NSNumber.init(value: model.stat?.feed_count ?? 0)
+            numbersTitleLabel.text = "\(followNum)关注 - \(feedNum)动态"
+        }
     }
 }

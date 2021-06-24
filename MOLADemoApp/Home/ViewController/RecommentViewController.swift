@@ -135,7 +135,10 @@ extension RecommentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(PagingViewController(), animated: true)
+        let vc = PagingViewController()
+        vc.gameModel = self.recGameList[indexPath.row].app_summary
+        vc.gameModel?.banner = self.recGameList[indexPath.row].image
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -53,7 +53,7 @@ class RankingListCell: UITableViewCell {
     
     public var type: String?
     
-    public var model: RankingModel? {
+    public var model: GameModel? {
         didSet{
             setModel()
             downloadButton.model = model?.uri
