@@ -18,6 +18,11 @@ class RecommentViewController: UIViewController {
     
     private var recGameList: [RecommentGameModel] = []
     
+    private lazy var loadingView: LoadingView = {
+        let view = LoadingView()
+        return view
+    }()
+    
     private lazy var recTableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -43,6 +48,8 @@ class RecommentViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         setConstraints()
+        //loading加载
+        loadingShow(vc: self)
         getData()
         
     }
@@ -68,16 +75,18 @@ class RecommentViewController: UIViewController {
     
     func getData() {
         NetWorkRequest(.gameList(parameters: ["X-UA" : "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "action" : "refresh"])) {[weak self] (responseString) -> (Void) in
+            guard let self = self else { return }
             // 游戏列表数据
             let json = JSON(responseString)
             if let modelData = (JSONDeserializer<RecommentBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
                 if let list = modelData.list {
-                    self?.recGameList = list
-                    self?.recTableView.reloadData()
+                    self.recGameList = list
+                    self.recTableView.reloadData()
                 }
-                self?.nextPage = modelData.next_page
+                self.nextPage = modelData.next_page
             }
-            self?.recTableView.mj_header?.endRefreshing()
+            self.recTableView.mj_header?.endRefreshing()
+            self.loadingDismiss(vc: self)
         } failed: {[weak self] (failedResutl) -> (Void) in
             print("服务器返回code不为0000啦~\(failedResutl)")
             self?.recTableView.mj_header?.endRefreshing()
@@ -133,5 +142,16 @@ extension RecommentViewController: UITableViewDelegate, UITableViewDataSource {
 extension RecommentViewController: JXSegmentedListContainerViewListDelegate {
     func listView() -> UIView {
         return view
+    }
+}
+
+
+extension RecommentViewController: LoadingViewProtocol {
+    func getLoadingView() -> LoadingView {
+        return loadingView
+    }
+    
+    func getErrorView() -> UIView {
+        return UIView()
     }
 }

@@ -98,6 +98,9 @@ class RankingListViewController: UIViewController {
                 if let list = modelData.list {
                     self.rankingList = list
                     self.rankingTableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.rankingTableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: false)
+                    }
                 }
                 self.nextPage = modelData.next_page
             }
@@ -147,6 +150,7 @@ extension RankingListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.selectionStyle = .none
         cell.type = typeList[currentIndex]
         cell.model = rankingList[indexPath.row]
+        cell.row = indexPath.row + 1
         return cell
          
     }

@@ -22,7 +22,7 @@ struct RecommentGameModel: HandyJSON {
     var web_url: String = ""
     var icon: ImageModel?
     var category: String = ""
-    var app_summary: AppSummaryModel?
+    var app_summary: GameModel?
     var tags: [TagsModel]?
     var uri: UriModel?
     var rating: RatingModel?

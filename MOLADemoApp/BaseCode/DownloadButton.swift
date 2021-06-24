@@ -5,7 +5,7 @@
 //  Created by 夏宗斌 on 2021/6/22.
 //
 
-import SVProgressHUD
+import UIKit
 class DownloadButton: UIButton {
     
     override init(frame: CGRect) {

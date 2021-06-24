@@ -52,8 +52,3 @@ struct RatingModel: HandyJSON {
     var max: Int = 10
 }
 
-
-//AppSummary？
-struct AppSummaryModel: HandyJSON {
-    var tags: [TagsModel]?
-}

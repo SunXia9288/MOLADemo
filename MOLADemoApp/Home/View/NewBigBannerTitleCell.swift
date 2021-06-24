@@ -18,7 +18,6 @@ class NewGameTopView: UIView {
         btn.setTitleColor(UIColor.lightRedColor, for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-
         return btn
     }()
     
@@ -74,12 +73,8 @@ class NewGameTopView: UIView {
                 tipButton.backgroundColor = UIColor.downloadBGColor
                 tipButton.setTitleColor(UIColor.downloadTitleColor, for: .normal)
             }
+            tipButton.roundCorners(corners: [.topLeft, .topRight], radius: 4.0)
         }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tipButton.roundCorners(corners: [.topLeft, .topRight], radius: 4.0)
     }
 }
 
@@ -221,18 +216,13 @@ class NewBigBannerTitleCell: UITableViewCell {
         
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func setModel() {
         if let model = model {
             let url = URL(string: (model.image?.url ?? ""))
             imgV.kf.setImage(with: url, placeholder: nil, options: nil) {[weak self] result in
                 guard let self = self else { return }
-                self.imgV.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 4.0)
+                self.imgV.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 4.0)  
             }
-//
         }
     }
 }

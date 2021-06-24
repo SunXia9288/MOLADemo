@@ -16,6 +16,13 @@ class RankingListCell: UITableViewCell {
         return imgv
     }()
     
+    private lazy var numLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.textBlackColor
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.textBlackColor
@@ -53,6 +60,13 @@ class RankingListCell: UITableViewCell {
         }
     }
     
+    public var row: Int = 0 {
+        didSet{
+            let number = NSNumber.init(value: row)
+            numLabel.text = number.stringValue
+        }
+    }
+    
     
     override init(style: UITableViewCell.CellStyle  , reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -66,15 +80,20 @@ class RankingListCell: UITableViewCell {
     
     func initUI() {
         contentView.addSubview(icon)
+        contentView.addSubview(numLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(hotLabel)
         contentView.addSubview(onLineTimeLabel)
         contentView.addSubview(downloadButton)
         
+        numLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+        }
 
         icon.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
-            make.left.equalToSuperview().offset(15)
+            make.left.equalTo(numLabel.snp.right).offset(15)
             make.width.height.equalTo(70)
             make.bottom.equalToSuperview().offset(-15)
         }
@@ -116,7 +135,7 @@ class RankingListCell: UITableViewCell {
         if let model = model {
             let url = URL(string: (model.icon?.url ?? ""))
             icon.kf.setImage(with: url)
-            
+           
             titleLabel.text = model.title
            
             if type == "reserve" {

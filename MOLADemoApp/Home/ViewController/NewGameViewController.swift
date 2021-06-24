@@ -38,6 +38,11 @@ class NewGameViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var loadingView: LoadingView = {
+        let view = LoadingView()
+        return view
+    }()
+    
     private var nextPage: String?
     
     private var prevPage: String?
@@ -51,6 +56,8 @@ class NewGameViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         setConstraints()
+        //loading加载
+        loadingShow(vc: self)
         getData()
     }
 
@@ -89,12 +96,17 @@ class NewGameViewController: UIViewController {
                 self.prevPage = modelData.prev_page
             }
             self.newGameTableView.mj_header?.endRefreshing()
+            self.loadingDismiss(vc: self)
         } failed: {[weak self] (failedResutl) -> (Void) in
+            guard let self = self else {return}
             print("服务器返回code不为0000啦~\(failedResutl)")
-            self?.newGameTableView.mj_header?.endRefreshing()
+            self.newGameTableView.mj_header?.endRefreshing()
+            self.loadingDismiss(vc: self)
         } errorResult: {[weak self] () -> (Void) in
+            guard let self = self else {return}
             print("网络异常")
-            self?.newGameTableView.mj_header?.endRefreshing()
+            self.newGameTableView.mj_header?.endRefreshing()
+            self.loadingDismiss(vc: self)
         }
 
     }
@@ -201,7 +213,7 @@ class NewGameViewController: UIViewController {
         var index: IndexPath = IndexPath.init(row: 0, section: 0)
         for (section, items) in newGameList.enumerated() {
             for (row, item) in items.enumerated() {
-                if item.event_at == model?.event_at {
+                if item.id == model?.id {
                     index = IndexPath.init(row: row, section: section)
                 }
             }
@@ -290,3 +302,16 @@ extension NewGameViewController: JXSegmentedListContainerViewListDelegate {
         return view
     }
 }
+
+extension NewGameViewController: LoadingViewProtocol {
+    func getLoadingView() -> LoadingView {
+        return loadingView
+    }
+    
+    func getErrorView() -> UIView {
+        return UIView()
+    }
+
+}
+
+

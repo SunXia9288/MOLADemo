@@ -10,7 +10,6 @@ import Foundation
 import Moya
 import SwiftyJSON
 import ObjectMapper
-import SVProgressHUD
 
 // 超时时长
 private var requestTimeOut: Double = 30

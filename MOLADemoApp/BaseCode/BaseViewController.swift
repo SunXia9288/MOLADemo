@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class BaseViewController: UIViewController {
  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self is ContentBaseViewController || self is GameViewController || self is NotViewController || self is SettingViewController {
@@ -27,3 +28,14 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
 }
+
+extension BaseViewController {
+    func loadingShow() {
+        
+    }
+    
+    func loadingDismiss() {
+        
+    }
+}
+ 
