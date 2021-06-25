@@ -11,6 +11,8 @@ class OperationBottomView: UIView {
     
     private lazy var leftLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor.downloadTitleColor
         return label
     }()
     
@@ -22,20 +24,29 @@ class OperationBottomView: UIView {
     private lazy var upButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.backgroundColor = UIColor.red
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return btn
     }()
     
     private lazy var replyButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.backgroundColor = UIColor.red
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return btn
     }()
     
     private lazy var shareButton: UIButton = {
         let btn = UIButton(type: .custom)
         btn.backgroundColor = UIColor.red
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return btn
     }()
+    
+    public var model: GameModel? {
+        didSet{
+            setModel()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +65,10 @@ class OperationBottomView: UIView {
         rightView.addSubview(upButton)
         rightView.addSubview(replyButton)
         rightView.addSubview(shareButton)
+        
+        shareButton.setTitle("分享", for: .normal)
+        replyButton.setTitle("回复", for: .normal)
+        upButton.setTitle("点赞", for: .normal)
     }
     
     private func initFrame() {
@@ -90,10 +105,8 @@ class OperationBottomView: UIView {
     
     
     func setModel() {
-        leftLabel.text = "综合"
-        shareButton.setTitle("分享", for: .normal)
-        replyButton.setTitle("回复", for: .normal)
-        upButton.setTitle("点赞", for: .normal)
+        if let model = model {
+            leftLabel.text = model.category
+        }
     }
-    
 }

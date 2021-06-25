@@ -108,6 +108,8 @@ open class JXPagingView: UIView {
             mainTableView.reloadData()
         }
     }
+    
+    
 
     open func reloadData() {
         currentList = nil

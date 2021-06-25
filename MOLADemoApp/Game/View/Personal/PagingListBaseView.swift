@@ -10,7 +10,11 @@ import UIKit
 
 @objc public class PagingListBaseView: UIView {
     @objc public var tableView: UITableView!
-    @objc public var dataSource: [String]?
+    var dataSource: [GameFeedModel]? {
+        didSet{
+            tableView.reloadData()
+        }
+    }
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
     var listViewDidSelectCallback: ((IndexPath) -> ())?
     private var isHeaderRefreshed: Bool = false
@@ -31,6 +35,7 @@ import UIKit
         tableView.separatorStyle = .none
         tableView.register(DynamicCell.self, forCellReuseIdentifier: "DynamicCell")
         addSubview(tableView)
+        
     }
 
     func beginFirstRefresh() {
@@ -64,6 +69,7 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicCell", for: indexPath) as! DynamicCell
         cell.selectionStyle = .none
+        cell.model = dataSource?[indexPath.row]
         return cell
     }
     

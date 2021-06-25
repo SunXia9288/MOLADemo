@@ -90,7 +90,6 @@ extension SettingViewController: JXPagingViewDelegate {
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         if index == 0 {
             let list = PagingListBaseView()
-            list.dataSource = ["橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮", "橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮"]
             list.listViewDidSelectCallback = { indexPath in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }
@@ -98,7 +97,6 @@ extension SettingViewController: JXPagingViewDelegate {
             return list
         }else if index == 1 {
             let list = PagingListBaseView()
-            list.dataSource = ["吃烤肉", "吃鸡腿肉", "吃牛肉", "各种肉"]
             list.listViewDidSelectCallback = { indexPath in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }

@@ -18,6 +18,8 @@ enum API {
     case gameList(parameters:[String:Any]) //游戏列表
     case upComingList(parameters:[String:Any]) //即将上线列表
     case rankingList(parameters:[String:Any]) //排行榜
+    case gameInfo(parameters:[String:Any]) //游戏信息
+    case gameFeedListInfo(parameters:[String:Any]) //游戏-动态列表
 }
 
 
@@ -25,22 +27,26 @@ enum API {
 extension API: TargetType {
     //服务器地址
     public var baseURL: URL {
-         return URL(string: "https://www.taptap.com/webapiv2")!
+        switch self {
+        case .gameFeedListInfo:
+            return URL(string: "https://api.taptapdada.com/")!
+        default:
+            return URL(string: "https://www.taptap.com/webapiv2")!
+        }
     }
 
     var path: String {
         switch self {
-//            case .homeGoodsList: return "wxmini/homePageContent"
-//            case .homePageBelowConten: return "wxmini/homePageBelowConten"
-//            case .goodDetail: return "wxmini/getGoodDetailById"
-//            case .goodCategory: return "wxmini/getCategory"
-//            case .categoryGoodsList: return "wxmini/getMallGoods"
         case .gameList:
             return "/landing/v5/timeline-with-guest"
         case .upComingList:
             return "/upcoming/v1/list"
         case .rankingList:
             return "/app-top/v1/hits"
+        case .gameInfo:
+            return "/group/v1/detail"
+        case .gameFeedListInfo:
+            return "/feed/v2/by-app"
         }
         
         
@@ -59,6 +65,10 @@ extension API: TargetType {
         case .upComingList(let parameters):
             parmeters = parameters
         case .rankingList(let parameters):
+            parmeters = parameters
+        case .gameInfo(let parameters):
+            parmeters = parameters
+        case .gameFeedListInfo(let parameters):
             parmeters = parameters
         }
         

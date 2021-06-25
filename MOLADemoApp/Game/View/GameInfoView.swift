@@ -82,9 +82,12 @@ class GameInfoView: UIView {
         if let model = model {
             titleLabel.text = model.title
     //        numbersTitleLabel.text = "488万关注 - 68万动态"
-            let followNum = NSNumber.init(value: model.stat?.fans_count ?? 0)
-            let feedNum = NSNumber.init(value: model.stat?.feed_count ?? 0)
-            numbersTitleLabel.text = "\(followNum)关注 - \(feedNum)动态"
+            if let fans_count = model.stat?.fans_count, fans_count > -1{
+                let followNum = NSNumber.init(value: fans_count)
+                let feedNum = NSNumber.init(value: model.stat?.feed_count ?? 0)
+                numbersTitleLabel.text = "\(followNum)关注 - \(feedNum)动态"
+            }
+        
         }
     }
 }

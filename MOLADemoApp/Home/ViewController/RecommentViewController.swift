@@ -80,7 +80,9 @@ class RecommentViewController: UIViewController {
             let json = JSON(responseString)
             if let modelData = (JSONDeserializer<RecommentBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
                 if let list = modelData.list {
-                    self.recGameList = list
+                    self.recGameList = list.filter({ model in
+                        return model.via == "编辑推荐"
+                    })
                     self.recTableView.reloadData()
                 }
                 self.nextPage = modelData.next_page

@@ -16,7 +16,6 @@ class PagingViewTableHeaderView: UIView {
         didSet{
             setModel()
             gameInfoView.model = model
-            
         }
     }
     
@@ -39,7 +38,6 @@ class PagingViewTableHeaderView: UIView {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 200)
-        imageView.backgroundColor = UIColor.green
         self.addSubview(imageView)
 
         imageViewFrame = imageView.frame
@@ -88,19 +86,24 @@ class PagingViewTableHeaderView: UIView {
 //            make.top.equalTo(gameInfoView.snp.bottom).offset(10)
 //            make.left.right.equalToSuperview()
 //        }
+        
+        setModel()
     }
     
     func setModel() {
         if let model = model {
-            let url = URL(string: model.banner?.url ?? "")
-            imageView.kf.setImage(with: url)
-            
-            let label = viewWithTag(1000) as? BaseLabel
-            let albumNum = NSNumber.init(value: model.stat?.album_count ?? 0)
-            label?.text = "图片 \(albumNum.stringValue)"
-            let label2 = viewWithTag(1001) as? BaseLabel
-            let videoNum = NSNumber.init(value: model.stat?.video_count ?? 0)
-            label2?.text = "视频 \(videoNum.stringValue)"
+            if let urlStr = model.banner?.url {
+                let url = URL(string: urlStr)
+                imageView.kf.setImage(with: url)
+            }
+            if let album_count = model.stat?.album_count, album_count > -1{
+                let label = viewWithTag(1000) as? BaseLabel
+                let albumNum = NSNumber.init(value: model.stat?.album_count ?? 0)
+                label?.text = "图片 \(albumNum.stringValue)"
+                let label2 = viewWithTag(1001) as? BaseLabel
+                let videoNum = NSNumber.init(value: model.stat?.video_count ?? 0)
+                label2?.text = "视频 \(videoNum.stringValue)"
+            }
         }
 
     }

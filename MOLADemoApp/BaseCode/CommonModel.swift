@@ -55,3 +55,17 @@ struct RatingModel: HandyJSON {
     var max: Int = 10
 }
 
+//用户model
+struct UserModel: HandyJSON {
+    var id: Int = -1
+    var name: String = ""
+    var avatar: String = ""
+    var medium_avatar: String = ""
+    var intro: String = ""
+}
+
+//label - Model 分类
+struct LabelModel: HandyJSON {
+    var name: String = ""
+    var uri: String = ""
+}

@@ -12,6 +12,8 @@ class UserTopView: UIView {
     private lazy var userAvatarsImageV: UIImageView = {
         let imagV = UIImageView()
         imagV.contentMode = .scaleAspectFill
+        imagV.clipsToBounds = true
+        imagV.layer.cornerRadius = 20
         return imagV
     }()
     
@@ -34,6 +36,12 @@ class UserTopView: UIView {
         return btn
     }()
     
+    public var model: GameFeedModel? {
+        didSet{
+            setModel()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
@@ -54,7 +62,7 @@ class UserTopView: UIView {
     
     private func initFrame() {
         userAvatarsImageV.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
+            make.width.height.equalTo(40)
             make.left.equalToSuperview()
             make.centerY.equalToSuperview()
         }
@@ -68,7 +76,7 @@ class UserTopView: UIView {
         
         userCreateTimeLabel.snp.makeConstraints { make in
             make.left.equalTo(userNickNameLabel)
-            make.top.equalTo(userNickNameLabel.snp.bottom).offset(5)
+            make.top.equalTo(userNickNameLabel.snp.bottom)
             make.height.equalTo(20)
             make.bottom.equalToSuperview().offset(-10)
         }
@@ -81,12 +89,12 @@ class UserTopView: UIView {
     }
     
     private func setModel() {
-        userAvatarsImageV.backgroundColor = UIColor.red
-        userAvatarsImageV.clipsToBounds = true
-        userAvatarsImageV.layer.cornerRadius = 25
-        
-        userNickNameLabel.text = "肤白貌美大长腿，人见人爱可爱花,肤白貌美大长腿，人见人爱可爱花"
-        userCreateTimeLabel.text = "05-13"
-        settingButton.backgroundColor = UIColor.green
+        if let model = model {
+            let url = URL(string: model.author?.avatar ?? "")
+            userAvatarsImageV.kf.setImage(with: url)
+            userNickNameLabel.text = model.author?.name
+            let time = timeIntervalChangeToTimeStr(timeInterval: TimeInterval(model.created_time), dateFormat: "HH-mm")
+            userCreateTimeLabel.text = time
+        }
     }
 }

@@ -8,20 +8,36 @@
 
 import UIKit
 import JXSegmentedView
+import Alamofire
+import SwiftyJSON
+import HandyJSON
+import MJRefresh
 
 extension JXPagingListContainerView: JXSegmentedViewListContainer {}
 
 class PagingViewController: BaseViewController {
     private var pagingView: JXPagingView!
-    private var userHeaderView: PagingViewTableHeaderView!
+    private var userHeaderView: PagingViewTableHeaderView?
     private var userHeaderContainerView: UIView!
     private var segmentedViewDataSource: JXSegmentedTitleDataSource!
     private var segmentedView: JXSegmentedView!
-    private let titles = ["动态", "资讯", "精华", "攻略", "吐槽大会", "官方论坛", "超能力"]
+    private let titles = ["动态", "帖子", "评论"]
+    private let titleTypes = ["feed", "topic", "review"]
     private var JXTableHeaderViewHeight: Int = 280
     private var JXheightForHeaderInSection: Int = 50
+//    private var list = PagingListBaseView()
     
-    public var gameModel: GameModel?
+    private var currentIndex: Int = 0
+    
+    public var gameModel: GameModel? {
+        didSet{
+            if let model = gameModel {
+                userHeaderView?.model = model
+            }
+        }
+    }
+    
+    public var feedList: [GameFeedModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +46,8 @@ class PagingViewController: BaseViewController {
    
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
-        userHeaderContainerView.addSubview(userHeaderView)
-        userHeaderView.model = gameModel
+        userHeaderContainerView.addSubview(userHeaderView!)
+        userHeaderView!.model = gameModel
         
         //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
@@ -60,7 +76,73 @@ class PagingViewController: BaseViewController {
 
         self.view.addSubview(pagingView)
         
+//        pagingView.mainTableView.mj_footer = MJRefreshBackNormalFooter() { [weak self] in
+//
+//        }
         segmentedView.listContainer = pagingView.listContainerView
+        
+        getGameData()
+        getSegmentListData(segmentIndex: currentIndex)
+    }
+    
+    func getGameData() {
+        NetWorkRequest(.gameInfo(parameters: ["X-UA" : "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "app_id": gameModel?.id ?? 0])) {[weak self] (responseString) -> (Void) in
+            guard let self = self else { return }
+            // 游戏列表数据
+            let json = JSON(responseString)
+            if let modelData = (JSONDeserializer<GameModel>.deserializeFrom(json: json["data"]["app"].description)) { // 从字符串转换为对象实例
+                self.gameModel = modelData
+            }
+        } failed: { (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+        } errorResult: { () -> (Void) in
+            print("网络异常")
+        }
+
+    }
+    
+    func getSegmentListData(segmentIndex: Int) {
+        let type = titleTypes[segmentIndex]
+        NetWorkRequest(.gameFeedListInfo(parameters: ["X-UA": "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "app_id": gameModel?.id ?? 0 , "type": type])) {[weak self] (responseString) -> (Void) in
+            guard let self = self else { return }
+            // 游戏列表数据
+            let json = JSON(responseString)
+            if let modelData = (JSONDeserializer<GameFeedBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
+                self.feedList = modelData.list?.map({ model in
+                    return model.data
+                }) as? [GameFeedModel]
+                self.pagingView.reloadData()
+            }
+        } failed: { (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+        } errorResult: { () -> (Void) in
+            print("网络异常")
+        }
+    }
+    
+    func getSegmentListNextData(segmentIndex: Int) {
+        let type = titleTypes[segmentIndex]
+        NetWorkRequest(.gameFeedListInfo(parameters: ["X-UA": "V=1&PN=WebApp&LANG=zh_CN&VN_CODE=4&VN=0.1.0&LOC=CN&PLT=iOS&DS=iOS&UID=e6bf196b-9724-47e7-9cda-c8485ae04213", "app_id": gameModel?.id ?? 0 , "type": type, "form": 10, "limit":"10"])) {[weak self] (responseString) -> (Void) in
+            guard let self = self else { return }
+            // 游戏列表数据
+            let json = JSON(responseString)
+            if let modelData = (JSONDeserializer<GameFeedBaseModel>.deserializeFrom(json: json["data"].description)) { // 从字符串转换为对象实例
+                if let list = modelData.list?.map({ model in
+                    return model.data
+                }) as? [GameFeedModel]{
+                    self.feedList? += list
+                    if let view = self.pagingView.listContainerView.validListDict[self.currentIndex]?.listView() as? PagingListBaseView {
+                        view.dataSource = self.feedList
+                    }
+                }
+            }
+            let view = self.pagingView.listContainerView.validListDict[self.currentIndex]?.listScrollView()
+            view?.mj_footer?.endRefreshing()
+        } failed: {(failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+        } errorResult: {() -> (Void) in
+            print("网络异常")
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -93,15 +175,13 @@ extension PagingViewController: JXPagingViewDelegate {
     }
 
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
+        currentIndex = index
         let list = PagingListBaseView()
-        if index == 0 {
-            list.dataSource = ["橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮", "橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮"]
-        }else if index == 1 {
-            list.dataSource = ["吃烤肉", "吃鸡腿肉", "吃牛肉", "各种肉"]
-        }else {
-            list.dataSource = ["【剑士】罗罗诺亚·索隆", "【航海士】娜美", "【狙击手】乌索普", "【厨师】香吉士", "【船医】托尼托尼·乔巴", "【船匠】 弗兰奇", "【音乐家】布鲁克", "【考古学家】妮可·罗宾"]
+        list.dataSource = self.feedList
+        //集成刷新
+        list.tableView.mj_footer = MJRefreshBackNormalFooter() { [weak self] in
+            self?.getSegmentListNextData(segmentIndex: index)
         }
-        
         list.listViewDidSelectCallback = { indexPath in
             self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
         }
