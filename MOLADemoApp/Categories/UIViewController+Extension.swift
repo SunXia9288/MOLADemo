@@ -13,23 +13,21 @@ protocol LoadingViewProtocol {
     func getErrorView() -> UIView
 }
 
-extension UIViewController{
+extension UIViewController {
     func loadingShow(vc: LoadingViewProtocol) {
         let loading = vc.getLoadingView()
         loading.frame = view.bounds
         view.addSubview(loading)
         loading.loadingViewShow()
     }
-    
+
     func loadingDismiss(vc: LoadingViewProtocol) {
         let loading = vc.getLoadingView()
         loading.loadingViewdismiss()
     }
-    
+
     func loadingError(vc: LoadingViewProtocol) {
         let errorView = vc.getErrorView()
         view.addSubview(errorView)
     }
-    
-
 }

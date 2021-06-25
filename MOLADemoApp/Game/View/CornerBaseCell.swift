@@ -15,12 +15,14 @@ class CornerBaseCell: UITableViewCell {
         case middle
         case last
     }
+
     var position: Position = .middle
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setCorners()
     }
+
     func setCorners() {
         let cornerRadius: CGFloat = 15.0
         switch position {
@@ -31,4 +33,3 @@ class CornerBaseCell: UITableViewCell {
         }
     }
 }
-

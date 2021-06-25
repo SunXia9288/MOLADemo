@@ -6,8 +6,8 @@
 //  Copyright © 2018年 jiaxin. All rights reserved.
 //
 
-import UIKit
 import JXSegmentedView
+import UIKit
 
 extension JXPagingListContainerView: JXSegmentedViewListContainer {}
 
@@ -24,17 +24,17 @@ class PagingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "个人中心"
-        self.navigationController?.navigationBar.isTranslucent = false
+        title = "个人中心"
+        navigationController?.navigationBar.isTranslucent = false
 
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
         userHeaderView = PagingViewTableHeaderView(frame: userHeaderContainerView.bounds)
         userHeaderContainerView.addSubview(userHeaderView)
 
-        //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
+        // segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
         segmentedViewDataSource.titles = titles
-        segmentedViewDataSource.titleSelectedColor = UIColor(red: 105/255, green: 144/255, blue: 239/255, alpha: 1)
+        segmentedViewDataSource.titleSelectedColor = UIColor(red: 105 / 255, green: 144 / 255, blue: 239 / 255, alpha: 1)
         segmentedViewDataSource.titleNormalColor = UIColor.black
         segmentedViewDataSource.isTitleColorGradientEnabled = true
         segmentedViewDataSource.isTitleZoomEnabled = true
@@ -45,11 +45,11 @@ class PagingViewController: UIViewController {
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
 
         let lineView = JXSegmentedIndicatorLineView()
-        lineView.indicatorColor = UIColor(red: 105/255, green: 144/255, blue: 239/255, alpha: 1)
+        lineView.indicatorColor = UIColor(red: 105 / 255, green: 144 / 255, blue: 239 / 255, alpha: 1)
         lineView.indicatorWidth = 30
         segmentedView.indicators = [lineView]
 
-        let lineWidth = 1/UIScreen.main.scale
+        let lineWidth = 1 / UIScreen.main.scale
         let lineLayer = CALayer()
         lineLayer.backgroundColor = UIColor.lightGray.cgColor
         lineLayer.frame = CGRect(x: 0, y: segmentedView.bounds.height - lineWidth, width: segmentedView.bounds.width, height: lineWidth)
@@ -57,47 +57,46 @@ class PagingViewController: UIViewController {
 
         pagingView = JXPagingView(delegate: self)
 
-        self.view.addSubview(pagingView)
-        
+        view.addSubview(pagingView)
+
         segmentedView.listContainer = pagingView.listContainerView
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        pagingView.frame = self.view.bounds
+        pagingView.frame = view.bounds
     }
 }
 
 extension PagingViewController: JXPagingViewDelegate {
-
-    func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int {
+    func tableHeaderViewHeight(in _: JXPagingView) -> Int {
         return JXTableHeaderViewHeight
     }
 
-    func tableHeaderView(in pagingView: JXPagingView) -> UIView {
+    func tableHeaderView(in _: JXPagingView) -> UIView {
         return userHeaderContainerView
     }
 
-    func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int {
+    func heightForPinSectionHeader(in _: JXPagingView) -> Int {
         return JXheightForHeaderInSection
     }
 
-    func viewForPinSectionHeader(in pagingView: JXPagingView) -> UIView {
+    func viewForPinSectionHeader(in _: JXPagingView) -> UIView {
         return segmentedView
     }
 
-    func numberOfLists(in pagingView: JXPagingView) -> Int {
+    func numberOfLists(in _: JXPagingView) -> Int {
         return titles.count
     }
 
-    func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
+    func pagingView(_: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         let list = PagingListBaseView()
         if index == 0 {
             list.dataSource = ["橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮", "橡胶火箭", "橡胶火箭炮", "橡胶机关枪", "橡胶子弹", "橡胶攻城炮", "橡胶象枪", "橡胶象枪乱打", "橡胶灰熊铳", "橡胶雷神象枪", "橡胶猿王枪", "橡胶犀·榴弹炮", "橡胶大蛇炮"]
-        }else if index == 1 {
+        } else if index == 1 {
             list.dataSource = ["吃烤肉", "吃鸡腿肉", "吃牛肉", "各种肉"]
-        }else {
+        } else {
             list.dataSource = ["【剑士】罗罗诺亚·索隆", "【航海士】娜美", "【狙击手】乌索普", "【厨师】香吉士", "【船医】托尼托尼·乔巴", "【船匠】 弗兰奇", "【音乐家】布鲁克", "【考古学家】妮可·罗宾"]
         }
         list.beginFirstRefresh()
@@ -108,4 +107,3 @@ extension PagingViewController: JXPagingViewDelegate {
         userHeaderView?.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
     }
 }
-

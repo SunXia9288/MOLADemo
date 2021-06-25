@@ -6,33 +6,33 @@
 //
 
 import Foundation
-import UIKit
 import JXSegmentedView
+import UIKit
 
 class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
     var tarbarConfigArr: [[String: String]]! // 标签栏配置数组，从Plist文件中读取
     var mainTabBarView: BaseTabbarController!
 
     var baseTabBarView: BaseTabBarView?
-    
+
     var isHiddenTabbar: Bool {
         didSet {
             baseTabBarView?.isHidden = isHiddenTabbar
         }
     }
-    
-    //创建一个静态或者全局变量，保存当前单例实例值
+
+    // 创建一个静态或者全局变量，保存当前单例实例值
     private static let singleInstance = BaseTabbarController()
-    
-    //提供一个公开的用来去获取单例的方法
-    class func defaultSingleInstance() ->BaseTabbarController {
-        //返回初始化好的静态变量值
+
+    // 提供一个公开的用来去获取单例的方法
+    class func defaultSingleInstance() -> BaseTabbarController {
+        // 返回初始化好的静态变量值
         return singleInstance
     }
-    
+
     override init(nibName _: String?, bundle _: Bundle?) {
         // 1.调用父类的初始化方法
-        self.isHiddenTabbar = false
+        isHiddenTabbar = false
         super.init(nibName: nil, bundle: nil)
         // 2.读取Plist文件,初始化标签栏配置数组
         tarbarConfigArr = getConfigArrFromPlistFile()
@@ -109,13 +109,12 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
                     vc.segmentedView.indicators = [indicator]
                     let nav = BaseNavigationController(rootViewController: vc)
                     nvcArray.append(nav)
-                }else if let vcClassType = anyClass as? BaseViewController.Type{
+                } else if let vcClassType = anyClass as? BaseViewController.Type {
                     let viewcontroller = vcClassType.init()
                     viewcontroller.title = controllerTitle[i]
                     let nav = BaseNavigationController(rootViewController: viewcontroller)
                     nvcArray.append(nav)
                 }
-                
             }
             // 设置标签栏控制器数组
             viewControllers = nvcArray
@@ -140,6 +139,4 @@ class BaseTabbarController: UITabBarController, BaseTabBarDelegate {
     func didChooseItem(itemIndex: Int) {
         selectedIndex = itemIndex
     }
-
-
 }

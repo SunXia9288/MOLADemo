@@ -21,8 +21,7 @@
 //  Created by zhouzhuo on 07/01/2017.
 //
 
-struct ReflectionHelper {
-
+enum ReflectionHelper {
     static func mutableStorage<T>(instance: inout T) -> UnsafeMutableRawPointer {
         return UnsafeMutableRawPointer(mutating: storage(instance: &instance))
     }
@@ -33,10 +32,8 @@ struct ReflectionHelper {
             return UnsafeRawPointer(opaquePointer)
         } else {
             return withUnsafePointer(to: &instance) { pointer in
-                return UnsafeRawPointer(pointer)
+                UnsafeRawPointer(pointer)
             }
         }
     }
 }
-
-

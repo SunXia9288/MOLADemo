@@ -40,8 +40,7 @@ public enum DebugMode: Int {
     case none = 3
 }
 
-public struct HandyJSONConfiguration {
-
+public enum HandyJSONConfiguration {
     private static var _mode = DebugMode.error
     public static var debugMode: DebugMode {
         get {

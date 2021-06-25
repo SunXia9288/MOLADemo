@@ -11,12 +11,13 @@ import UIKit
 @objc public class PagingListBaseView: UIView {
     @objc public var tableView: UITableView!
     var dataSource: [GameFeedModel]? {
-        didSet{
+        didSet {
             tableView.reloadData()
         }
     }
-    var listViewDidScrollCallback: ((UIScrollView) -> ())?
-    var listViewDidSelectCallback: ((IndexPath) -> ())?
+
+    var listViewDidScrollCallback: ((UIScrollView) -> Void)?
+    var listViewDidSelectCallback: ((IndexPath) -> Void)?
     private var isHeaderRefreshed: Bool = false
     deinit {
         listViewDidScrollCallback = nil
@@ -35,31 +36,29 @@ import UIKit
         tableView.separatorStyle = .none
         tableView.register(DynamicCell.self, forCellReuseIdentifier: "DynamicCell")
         addSubview(tableView)
-        
     }
 
     func beginFirstRefresh() {
         if !isHeaderRefreshed {
-            self.isHeaderRefreshed = true
-            self.tableView.reloadData()
+            isHeaderRefreshed = true
+            tableView.reloadData()
         }
     }
 
-
-    required public init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override public func layoutSubviews() {
         super.layoutSubviews()
 
-        tableView.frame = self.bounds
+        tableView.frame = bounds
     }
-
 }
 
 extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         if isHeaderRefreshed {
             return dataSource?.count ?? 0
         }
@@ -72,13 +71,13 @@ extension PagingListBaseView: UITableViewDataSource, UITableViewDelegate {
         cell.model = dataSource?[indexPath.row]
         return cell
     }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.listViewDidSelectCallback?(indexPath)
+
+    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listViewDidSelectCallback?(indexPath)
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.listViewDidScrollCallback?(scrollView)
+        listViewDidScrollCallback?(scrollView)
     }
 }
 
@@ -86,12 +85,12 @@ extension PagingListBaseView: JXPagingViewListViewDelegate {
     public func listView() -> UIView {
         return self
     }
-    
-    public func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
-        self.listViewDidScrollCallback = callback
+
+    public func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> Void) {
+        listViewDidScrollCallback = callback
     }
 
     public func listScrollView() -> UIScrollView {
-        return self.tableView
+        return tableView
     }
 }

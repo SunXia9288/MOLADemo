@@ -8,34 +8,27 @@
 import Foundation
 import UIKit
 class BaseViewController: UIViewController {
- 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self is ContentBaseViewController || self is GameViewController || self is NotViewController || self is SettingViewController {
             BaseTabbarController.defaultSingleInstance().isHiddenTabbar = false
-        }else{
+        } else {
             BaseTabbarController.defaultSingleInstance().isHiddenTabbar = true
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isTranslucent = false
     }
 }
 
 extension BaseViewController {
-    func loadingShow() {
-        
-    }
-    
-    func loadingDismiss() {
-        
-    }
+    func loadingShow() {}
+
+    func loadingDismiss() {}
 }
- 

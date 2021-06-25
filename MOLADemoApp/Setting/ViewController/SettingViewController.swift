@@ -5,10 +5,10 @@
 //  Created by 夏宗斌 on 2021/5/19.
 //
 
-import UIKit
 import JXSegmentedView
+import UIKit
 
-//个人中心
+// 个人中心
 class SettingViewController: BaseViewController {
     private var pagingView: JXPagingView!
     private var userHeaderView: UserHeaderView!
@@ -22,13 +22,13 @@ class SettingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "个人中心"
-   
+        title = "个人中心"
+
         userHeaderContainerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: CGFloat(JXTableHeaderViewHeight)))
         userHeaderView = UserHeaderView(frame: userHeaderContainerView.bounds)
         userHeaderContainerView.addSubview(userHeaderView)
-        
-        //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
+
+        // segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedViewDataSource = JXSegmentedTitleDataSource()
         segmentedViewDataSource.titles = titles
         segmentedViewDataSource.titleSelectedColor = UIColor.molaColor
@@ -41,11 +41,11 @@ class SettingViewController: BaseViewController {
         segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
 
         let lineView = JXSegmentedIndicatorLineView()
-        lineView.indicatorColor = UIColor(red: 105/255, green: 144/255, blue: 239/255, alpha: 1)
+        lineView.indicatorColor = UIColor(red: 105 / 255, green: 144 / 255, blue: 239 / 255, alpha: 1)
         lineView.indicatorWidth = 30
         segmentedView.indicators = [lineView]
 
-        let lineWidth = 1/UIScreen.main.scale
+        let lineWidth = 1 / UIScreen.main.scale
         let lineLayer = CALayer()
         lineLayer.backgroundColor = UIColor.lightGray.cgColor
         lineLayer.frame = CGRect(x: 0, y: segmentedView.bounds.height - lineWidth, width: segmentedView.bounds.width, height: lineWidth)
@@ -53,66 +53,64 @@ class SettingViewController: BaseViewController {
 
         pagingView = JXPagingView(delegate: self)
 
-        self.view.addSubview(pagingView)
-        
+        view.addSubview(pagingView)
+
         segmentedView.listContainer = pagingView.listContainerView
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        pagingView.frame = self.view.bounds
+        pagingView.frame = view.bounds
     }
 }
 
 extension SettingViewController: JXPagingViewDelegate {
-
-    func tableHeaderViewHeight(in pagingView: JXPagingView) -> Int {
+    func tableHeaderViewHeight(in _: JXPagingView) -> Int {
         return JXTableHeaderViewHeight
     }
 
-    func tableHeaderView(in pagingView: JXPagingView) -> UIView {
+    func tableHeaderView(in _: JXPagingView) -> UIView {
         return userHeaderContainerView
     }
 
-    func heightForPinSectionHeader(in pagingView: JXPagingView) -> Int {
+    func heightForPinSectionHeader(in _: JXPagingView) -> Int {
         return JXheightForHeaderInSection
     }
 
-    func viewForPinSectionHeader(in pagingView: JXPagingView) -> UIView {
+    func viewForPinSectionHeader(in _: JXPagingView) -> UIView {
         return segmentedView
     }
 
-    func numberOfLists(in pagingView: JXPagingView) -> Int {
+    func numberOfLists(in _: JXPagingView) -> Int {
         return titles.count
     }
 
-    func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
+    func pagingView(_: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         if index == 0 {
             let list = PagingListBaseView()
-            list.listViewDidSelectCallback = { indexPath in
+            list.listViewDidSelectCallback = { _ in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }
             list.beginFirstRefresh()
             return list
-        }else if index == 1 {
+        } else if index == 1 {
             let list = PagingListBaseView()
-            list.listViewDidSelectCallback = { indexPath in
+            list.listViewDidSelectCallback = { _ in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }
             list.beginFirstRefresh()
             return list
-        }else {
+        } else {
             let list = MOLAPointsCollectionView()
-            list.listViewDidSelectCallback = { indexPath in
+            list.listViewDidSelectCallback = { _ in
                 self.navigationController?.pushViewController(GameDetailViewController(), animated: true)
             }
             return list
         }
     }
 
-    func mainTableViewDidScroll(_ scrollView: UIScrollView) {
+    func mainTableViewDidScroll(_: UIScrollView) {
 //        userHeaderView?.scrollViewDidScroll(contentOffsetY: scrollView.contentOffset.y)
     }
 }
-

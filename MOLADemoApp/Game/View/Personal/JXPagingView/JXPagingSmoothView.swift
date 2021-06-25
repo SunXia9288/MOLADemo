@@ -40,15 +40,14 @@ public protocol JXPagingSmoothViewDelegate {
     @objc optional func pagingSmoothViewDidScroll(_ scrollView: UIScrollView)
 }
 
-
 open class JXPagingSmoothView: UIView {
-    public private(set) var listDict = [Int : JXPagingSmoothViewListViewDelegate]()
+    public private(set) var listDict = [Int: JXPagingSmoothViewListViewDelegate]()
     public let listCollectionView: JXPagingSmoothCollectionView
     public var defaultSelectedIndex: Int = 0
     public weak var delegate: JXPagingSmoothViewDelegate?
 
     weak var dataSource: JXPagingSmoothViewDataSource?
-    var listHeaderDict = [Int : UIView]()
+    var listHeaderDict = [Int: UIView]()
     var isSyncListContentOffsetEnabled: Bool = false
     let pagingHeaderContainerView: UIView
     var currentPagingHeaderContainerViewY: CGFloat = 0
@@ -95,7 +94,8 @@ open class JXPagingSmoothView: UIView {
         addSubview(listCollectionView)
     }
 
-    required public init?(coder: NSCoder) {
+    @available(*, unavailable)
+    public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -107,7 +107,7 @@ open class JXPagingSmoothView: UIView {
         isSyncListContentOffsetEnabled = false
 
         listHeaderDict.removeAll()
-        listDict.values.forEach { (list) in
+        listDict.values.forEach { list in
             list.listScrollView().removeObserver(self, forKeyPath: "contentOffset")
             list.listScrollView().removeObserver(self, forKeyPath: "contentSize")
             list.listView().removeFromSuperview()
@@ -126,7 +126,7 @@ open class JXPagingSmoothView: UIView {
         pagingHeaderContainerView.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: heightForPagingHeaderContainerView)
         pagingHeader.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: heightForPagingHeader)
         pinHeader.frame = CGRect(x: 0, y: heightForPagingHeader, width: bounds.size.width, height: heightForPinHeader)
-        listCollectionView.setContentOffset(CGPoint(x: listCollectionView.bounds.size.width*CGFloat(defaultSelectedIndex), y: 0), animated: false)
+        listCollectionView.setContentOffset(CGPoint(x: listCollectionView.bounds.size.width * CGFloat(defaultSelectedIndex), y: 0), animated: false)
         listCollectionView.reloadData()
 
         if dataSource.numberOfLists(in: self) == 0 {
@@ -134,13 +134,13 @@ open class JXPagingSmoothView: UIView {
             addSubview(singleScrollView!)
             singleScrollView?.addSubview(pagingHeader)
             singleScrollView?.contentSize = CGSize(width: bounds.size.width, height: heightForPagingHeader)
-        }else if singleScrollView != nil {
+        } else if singleScrollView != nil {
             singleScrollView?.removeFromSuperview()
             singleScrollView = nil
         }
     }
 
-    open override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
 
         listCollectionView.frame = bounds
@@ -175,7 +175,7 @@ open class JXPagingSmoothView: UIView {
                 pagingHeaderContainerView.frame.origin.y = 0
                 header?.addSubview(pagingHeaderContainerView)
             }
-        }else {
+        } else {
             if pagingHeaderContainerView.superview != self {
                 pagingHeaderContainerView.frame.origin.y = -heightForPagingHeader
                 addSubview(pagingHeaderContainerView)
@@ -192,30 +192,31 @@ open class JXPagingSmoothView: UIView {
         }
     }
 
-    //MARK: - KVO
+    // MARK: - KVO
 
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
             if let scrollView = object as? UIScrollView {
                 listDidScroll(scrollView: scrollView)
             }
-        }else if keyPath == "contentSize" {
+        } else if keyPath == "contentSize" {
             if let scrollView = object as? UIScrollView {
                 let minContentSizeHeight = bounds.size.height - heightForPinHeader
                 if minContentSizeHeight > scrollView.contentSize.height {
                     scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: minContentSizeHeight)
-                    //新的scrollView第一次加载的时候重置contentOffset
+                    // 新的scrollView第一次加载的时候重置contentOffset
                     if currentListScrollView != nil, scrollView != currentListScrollView! {
                         scrollView.contentOffset = CGPoint(x: 0, y: currentListInitializeContentOffsetY)
                     }
                 }
             }
-        }else {
+        } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
 
-    //MARK: - Private
+    // MARK: - Private
+
     func listHeader(for listScrollView: UIScrollView) -> UIView? {
         for (index, list) in listDict {
             if list.listScrollView() == listScrollView {
@@ -267,11 +268,11 @@ open class JXPagingSmoothView: UIView {
 }
 
 extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return bounds.size
     }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         guard let dataSource = dataSource else { return 0 }
         return dataSource.numberOfLists(in: self)
     }
@@ -314,23 +315,23 @@ extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
 
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         listDidAppear(at: indexPath.item)
     }
 
-    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_: UICollectionView, didEndDisplaying _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         listDidDisappear(at: indexPath.item)
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.pagingSmoothViewDidScroll?(scrollView)
-        let indexPercent = scrollView.contentOffset.x/scrollView.bounds.size.width
-        let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        let indexPercent = scrollView.contentOffset.x / scrollView.bounds.size.width
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
         let listScrollView = listDict[index]?.listScrollView()
-        if (indexPercent - CGFloat(index) == 0) && index != currentIndex && !(scrollView.isDragging || scrollView.isDecelerating) && listScrollView?.contentOffset.y ?? 0 <= -heightForPinHeader {
+        if indexPercent - CGFloat(index) == 0, index != currentIndex, !(scrollView.isDragging || scrollView.isDecelerating), listScrollView?.contentOffset.y ?? 0 <= -heightForPinHeader {
             horizontalScrollDidEnd(at: index)
-        }else {
-            //左右滚动的时候，就把listHeaderContainerView添加到self，达到悬浮在顶部的效果
+        } else {
+            // 左右滚动的时候，就把listHeaderContainerView添加到self，达到悬浮在顶部的效果
             if pagingHeaderContainerView.superview != self {
                 pagingHeaderContainerView.frame.origin.y = currentPagingHeaderContainerViewY
                 addSubview(pagingHeaderContainerView)
@@ -343,20 +344,20 @@ extension JXPagingSmoothView: UICollectionViewDataSource, UICollectionViewDelega
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+            let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
             horizontalScrollDidEnd(at: index)
         }
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let index = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
         horizontalScrollDidEnd(at: index)
     }
 }
 
 public class JXPagingSmoothCollectionView: UICollectionView, UIGestureRecognizerDelegate {
     var pagingHeaderContainerView: UIView?
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let point = touch.location(in: pagingHeaderContainerView)
         if pagingHeaderContainerView?.bounds.contains(point) == true {
             return false

@@ -5,8 +5,8 @@
 //  Created by 夏宗斌 on 2021/6/16.
 //
 
-import UIKit
 import HandyJSON
+import UIKit
 
 struct RecommentBaseModel: HandyJSON {
     var list: [RecommentGameModel]?

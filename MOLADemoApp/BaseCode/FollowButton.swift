@@ -10,28 +10,28 @@ import UIKit
 class FollowButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
-        self.setTitle("关注", for: .normal)
-        self.setTitle("已关注", for: .selected)
-        self.setTitleColor(UIColor.molaColor, for: .normal)
-        self.setTitleColor(UIColor.white, for: .selected)
-        self.addTarget(self, action: #selector(followClick(_:)), for: .touchUpInside)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        self.layer.cornerRadius = 4
+        backgroundColor = UIColor.white
+        setTitle("关注", for: .normal)
+        setTitle("已关注", for: .selected)
+        setTitleColor(UIColor.molaColor, for: .normal)
+        setTitleColor(UIColor.white, for: .selected)
+        addTarget(self, action: #selector(followClick(_:)), for: .touchUpInside)
+        titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        layer.cornerRadius = 4
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     @objc func followClick(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
-            self.backgroundColor = UIColor.white
-        }else{
+            backgroundColor = UIColor.white
+        } else {
             sender.isSelected = true
-            self.backgroundColor = UIColor(rgb: 0xFFFFFF, alpha: 0.5)
+            backgroundColor = UIColor(rgb: 0xFFFFFF, alpha: 0.5)
         }
     }
-    
 }

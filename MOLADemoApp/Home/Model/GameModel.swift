@@ -8,7 +8,6 @@
 import Foundation
 import HandyJSON
 
-
 struct GameModel: HandyJSON {
     var id: Int = -1
     var title: String = ""

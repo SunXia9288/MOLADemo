@@ -8,7 +8,6 @@
 import Foundation
 import HandyJSON
 
-
 struct GameFeedBaseModel: HandyJSON {
     var list: [GameFeedShellModel]?
     var next_page: String?

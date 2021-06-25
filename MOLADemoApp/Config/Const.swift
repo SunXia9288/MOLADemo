@@ -6,11 +6,10 @@
 //
 
 import Foundation
+@_exported import Kingfisher
 @_exported import MJRefresh
 @_exported import SnapKit
 @_exported import SVProgressHUD
-@_exported import Kingfisher
-
 
 /// 屏幕高度
 let KScreenHeight = UIScreen.main.bounds.height
@@ -34,14 +33,13 @@ let TabbarHeight = CGFloat(49.0)
 /// 包含安全区域的tabbar高度
 let TabbarSafeHeight = TabbarHeight + KSafeBottom
 
-
-func timeIntervalChangeToTimeStr(timeInterval:TimeInterval, dateFormat:String?) -> String {
-      let date:NSDate = NSDate.init(timeIntervalSince1970: timeInterval)
-      let formatter = DateFormatter.init()
-      if dateFormat == nil {
-          formatter.dateFormat = "MM月dd日"
-      }else{
-          formatter.dateFormat = dateFormat
-      }
-      return formatter.string(from: date as Date)
+func timeIntervalChangeToTimeStr(timeInterval: TimeInterval, dateFormat: String?) -> String {
+    let date = NSDate(timeIntervalSince1970: timeInterval)
+    let formatter = DateFormatter()
+    if dateFormat == nil {
+        formatter.dateFormat = "MM月dd日"
+    } else {
+        formatter.dateFormat = dateFormat
+    }
+    return formatter.string(from: date as Date)
 }

@@ -29,7 +29,6 @@ class ContentBaseViewController: BaseViewController {
 
         segmentedView.listContainer = listContainerView
         view.addSubview(listContainerView)
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +45,7 @@ class ContentBaseViewController: BaseViewController {
         super.viewDidLayoutSubviews()
 
         segmentedView.frame = CGRect(x: 0, y: KSafeTop, width: view.bounds.size.width, height: 40)
-        listContainerView.frame = CGRect(x: 0, y: KSafeTop + 50 , width: view.bounds.size.width, height: view.bounds.size.height - (KSafeTop + 50 + TabbarSafeHeight))
+        listContainerView.frame = CGRect(x: 0, y: KSafeTop + 50, width: view.bounds.size.width, height: view.bounds.size.height - (KSafeTop + 50 + TabbarSafeHeight))
     }
 
     @objc func didSetingsButtonClicked() {}
@@ -85,13 +84,12 @@ extension ContentBaseViewController: JXSegmentedListContainerViewDataSource {
     func listContainerView(_: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         if index == 0 {
             return RecommentViewController()
-        }else if index == 1{
+        } else if index == 1 {
             return NewGameViewController()
-        }else if index == 2{
+        } else if index == 2 {
             return RankingListViewController()
-        }else {
+        } else {
             return RecommentViewController()
         }
-        
     }
 }

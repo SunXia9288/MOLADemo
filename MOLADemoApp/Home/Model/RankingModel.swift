@@ -5,8 +5,8 @@
 //  Created by 夏宗斌 on 2021/6/22.
 //
 
-import UIKit
 import HandyJSON
+import UIKit
 
 struct RankingBaseModel: HandyJSON {
     var list: [GameModel]?
@@ -14,7 +14,7 @@ struct RankingBaseModel: HandyJSON {
     var total: Int = -1
 }
 
-//struct RankingModel: HandyJSON {
+// struct RankingModel: HandyJSON {
 //    var id: Int = -1
 //    var title: String = ""
 //    var icon: ImageModel?
@@ -23,4 +23,4 @@ struct RankingBaseModel: HandyJSON {
 //    var author: String = ""
 //    var uri: UriModel?
 //
-//}
+// }
